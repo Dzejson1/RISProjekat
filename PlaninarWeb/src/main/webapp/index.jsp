@@ -7,6 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+markooooooooooo
 TIP ZNAMENITOSTI<br/>
 <a href="/Planinar/admin/dodajTipZnamenitosti.jsp">Unesi tip znamenitosti</a><br/>
 <a href="/Planinar/tipZnamenitostiController/admin/getEditTipoveZnamenitosti">Izmeni tip znamenitosti</a><br/>
