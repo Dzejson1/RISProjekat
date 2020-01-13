@@ -3,7 +3,7 @@ package model;
 import java.io.Serializable;
 import javax.persistence.*;
 
-//markoooooooooooo
+
 /**
  * The persistent class for the izvestaj_564_17 database table.
  * 
