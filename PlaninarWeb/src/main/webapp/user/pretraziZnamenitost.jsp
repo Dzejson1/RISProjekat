@@ -9,14 +9,14 @@
 </head>
 <body>
 
-<form action="/Planinar/znamenitostController/admin/prikaziZnamenitost" method="get">
+<form action="/Planinar/znamenitostController/user/prikaziZnamenitost" method="get">
 Unesi id znamenitosti <input type="text" name="idZ">
 <input type="submit" value="Prikazi">
 </form>
 <c:if test="${! empty znam}">
 <div >
 <%-- 	<img height="100" width="100" src="/Planinar/stazaController/user/get-image/${slika.idStaza}"/><br/><br/> --%>
- 	<img height="100" width="100" src="/Planinar/znamenitostController/admin/get-image/${znam.idZnamenitost}"/><br/><br/>
+ 	<img height="100" width="100" src="/Planinar/znamenitostController/user/get-image/${znam.idZnamenitost}"/><br/><br/>
  </div>
 
 </c:if>

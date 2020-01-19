@@ -77,13 +77,6 @@ public class ZnamenitostController {
 	}
 	
 	
-	@RequestMapping(value = "/admin/prikaziZnamenitost",method = RequestMethod.GET)
-	public String prikaziZnamenitost(String idZ,HttpServletRequest request) {
-		Znamenitost56417 znam=znamRep.findById(Integer.parseInt(idZ)).get();
-		request.getSession().setAttribute("znam", znam);
-		System.out.println("----------------"+znam.getIdZnamenitost());
-		return "admin/pretraziZnamenitost";
-	}
 	
 	@RequestMapping(value = "/admin/ObrisiZnamenitost",method = RequestMethod.POST)
 	public String ObrisiZnamenitost(String idZ,HttpServletRequest request) {
@@ -171,8 +164,16 @@ public class ZnamenitostController {
 		//return "admin/izmeniStazu";
 		return "redirect:/znamenitostController/admin/getDodajZnamenitost";
 	}
+
+	@RequestMapping(value = "/user/prikaziZnamenitost",method = RequestMethod.GET)
+	public String prikaziZnamenitost(String idZ,HttpServletRequest request) {
+		Znamenitost56417 znam=znamRep.findById(Integer.parseInt(idZ)).get();
+		request.getSession().setAttribute("znam", znam);
+		System.out.println("----------------"+znam.getIdZnamenitost());
+		return "admin/pretraziZnamenitost";
+	}
 	
-	@RequestMapping(value = "/admin/get-image/{idZnam}", method = RequestMethod.GET)
+	@RequestMapping(value = "/user/get-image/{idZnam}", method = RequestMethod.GET)
 	public void getImage(@PathVariable("idZnam") String idZ, HttpServletResponse response,HttpServletRequest request) throws IOException {
 		System.out.println("-----------------------" + idZ);
 		System.out.println("usoooooooooooooooooooooooooooo");

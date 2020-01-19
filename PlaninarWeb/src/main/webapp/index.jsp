@@ -26,7 +26,7 @@ ZNAMENITOST<br/>
 <a href="/Planinar/znamenitostController/admin/getDodajZnamenitost">Unesi znamenitost</a><br/>
 <a href="/Planinar/znamenitostController/admin/getIzmeniZnamenitost">Izmeni znamenitost</a><br/>
 <a href="/Planinar/znamenitostController/admin/getObrisiZnamenitost">Obrisi znamenitost</a><br/>
-<a href="/Planinar/admin/pretraziZnamenitost.jsp">Pretrazi znamenitost za uneti id</a><br/>
+<a href="/Planinar/user/pretraziZnamenitost.jsp">Pretrazi znamenitost za uneti id</a><br/>
 KORISNIK<br/>
 <a href="/Planinar/korisnikController/user/getDodajKorisnika">Unesi korisnika</a><br/>
 <a href="/Planinar/korisnikController/user/getIzmeniKorisnika">Izmeni korisnika</a><br/>

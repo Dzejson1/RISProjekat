@@ -138,7 +138,7 @@ public class StazaController {
 	public String nadji(String idStaza, HttpServletRequest request) {
 		Staza56417 image = stazaRep.findById(Integer.parseInt(idStaza)).get();
 		request.getSession().setAttribute("slika", image);
-		System.out.println("-----------------------" + image.getIdStaza());
+		//System.out.println("-----------------------" + image.getIdStaza());
 		// Files.write(Paths.get("retrieve-dir/" + image.getOpis()
 		// + "." + image.getType()), image.getPic());
 
