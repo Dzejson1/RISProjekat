@@ -24,7 +24,7 @@ public class Role56417 implements Serializable {
 	private String name;
 
 	//bi-directional many-to-many association to Korisnik56417
-	@ManyToMany
+	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(
 		name="korisnik_has_role_564_17"
 		, joinColumns={

@@ -32,7 +32,7 @@ public class Korisnik56417 implements Serializable {
 	private String prezime;
 
 	private String username;
-
+	
 	//bi-directional many-to-one association to Izvestaj56417
 	@OneToMany(mappedBy="korisnik56417")
 	private List<Izvestaj56417> izvestaj56417s;
@@ -46,7 +46,7 @@ public class Korisnik56417 implements Serializable {
 	private List<Rezervacijasmestaja56417> rezervacijasmestaja56417s;
 
 	//bi-directional many-to-many association to Role56417
-	@ManyToMany(mappedBy="korisnik56417s")
+	@ManyToMany(fetch = FetchType.EAGER, mappedBy="korisnik56417s")
 	private List<Role56417> role56417s=new ArrayList<>();
 
 	//bi-directional many-to-one association to Slika56417

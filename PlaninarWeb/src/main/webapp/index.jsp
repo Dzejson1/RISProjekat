@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,7 +8,14 @@
 <title>Insert title here</title>
 </head>
 <body>
-malkooo
+
+ <c:url var="loginUrl" value="/perform_logout" />
+<form action="${loginUrl }" method="post"> 
+<input type="submit" value="Logout">
+</form><br/>
+
+<%-- <a href="<c:url value="/perform_logout" />">Logout</a><br/> --%>
+
 TIP ZNAMENITOSTI<br/>
 <a href="/Planinar/admin/dodajTipZnamenitosti.jsp">Unesi tip znamenitosti</a><br/>
 <a href="/Planinar/tipZnamenitostiController/admin/getEditTipoveZnamenitosti">Izmeni tip znamenitosti</a><br/>
@@ -46,9 +54,9 @@ REZERVACIJA SMESTAJA<br/>
 <a href="/Planinar/rezervacijaSmestajaController/user/getIzmeniRezervacijuSmestaja">Izmeni rezervaciju smestaja</a><br/>
 <a href="/Planinar/rezervacijaSmestajaController/user/getObrisiRezervacijuSmestaja">Obrisi rezervaciju smestaja</a><br/>
 IZVESTAJ<br/>
-<a href="/Planinar//izvestajController/user/getDodajIzvestaj">Unesi izvestaj</a><br/>
-<a href="/Planinar//izvestajController/user/getIzmeniIzvestaj">Izmeni izvestaj</a><br/>
-<a href="/Planinar//izvestajController/user/getObrisiIzvestaj">Obrisi izvestaj</a><br/>
+<a href="/Planinar/izvestajController/user/getDodajIzvestaj">Unesi izvestaj</a><br/>
+<a href="/Planinar/izvestajController/user/getIzmeniIzvestaj">Izmeni izvestaj</a><br/>
+<a href="/Planinar/izvestajController/user/getObrisiIzvestaj">Obrisi izvestaj</a><br/>
 SLIKE<br/>
 <a href="/Planinar/slikeController/user/getDodajSlike">Unesi sliku</a><br/>
 <a href="/Planinar/slikeController/user/getIzmeniSlike">Izmeni sliku</a><br/>

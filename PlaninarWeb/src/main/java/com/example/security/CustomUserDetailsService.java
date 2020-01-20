@@ -24,7 +24,7 @@ public class CustomUserDetailsService implements UserDetailsService {
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		
 		Korisnik56417 user=korisnikRep.findByUsername(username);
-		System.out.println("------------------------------------------------------"+user.getIdKorisnik());
+		System.out.println("-------------asdasdasdgasdasd-----------------------------------------"+user.getIdKorisnik());
 		
 		UserDetailsImpl userDetails = new UserDetailsImpl();
 		userDetails.setUsername(user.getUsername());

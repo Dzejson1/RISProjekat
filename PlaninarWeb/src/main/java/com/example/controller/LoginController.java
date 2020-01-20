@@ -51,7 +51,12 @@ public class LoginController {
 	    BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 	    u.setPassword(passwordEncoder.encode(u.getPassword()));
 		
-	    Role56417 role = roleRep.findById(2).get();
+	    //user
+	   // Role56417 role = roleRep.findById(2).get();
+	    
+	    
+	    //admin
+	    Role56417 role = roleRep.findById(1).get();
 	    
 		u.addRole(role);
 		role.addUser(u);

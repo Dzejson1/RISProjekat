@@ -170,7 +170,7 @@ public class ZnamenitostController {
 		Znamenitost56417 znam=znamRep.findById(Integer.parseInt(idZ)).get();
 		request.getSession().setAttribute("znam", znam);
 		System.out.println("----------------"+znam.getIdZnamenitost());
-		return "admin/pretraziZnamenitost";
+		return "user/pretraziZnamenitost";
 	}
 	
 	@RequestMapping(value = "/user/get-image/{idZnam}", method = RequestMethod.GET)
