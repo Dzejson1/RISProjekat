@@ -16,7 +16,7 @@ import com.example.repository.PlaninaRepository;
 import model.Izvestaj56417;
 import model.Korisnik56417;
 import model.Planina56417;
-import model.Planinarskidom56417;
+
 
 @Controller
 @RequestMapping(value = "/izvestajController")

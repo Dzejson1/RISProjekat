@@ -12,9 +12,10 @@ import org.springframework.security.core.userdetails.UserDetails;
 import model.Role56417;
 
 public class UserDetailsImpl implements UserDetails {
+	
 	private static final long serialVersionUID = 1L;
 	private String username;
-	 private String password;
+	private String password;
 	 
 	 ////
 	 private List<Role56417> roles;

@@ -24,6 +24,7 @@ public class CustomUserDetailsService implements UserDetailsService {
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		
 		Korisnik56417 user=korisnikRep.findByUsername(username);
+		
 		System.out.println("-------------asdasdasdgasdasd-----------------------------------------"+user.getIdKorisnik());
 		
 		UserDetailsImpl userDetails = new UserDetailsImpl();
@@ -35,18 +36,4 @@ public class CustomUserDetailsService implements UserDetailsService {
 		userDetails.setRoles(user.getRole56417s());
 		return userDetails;
 	}
-	
-//	 @Autowired
-//	    private PozoristeUserRepository korisnikRepository;  
-//	    @Override
-//		public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-//			PozoristeUser user = korisnikRepository.findByUsername(username);
-//			UserDetailsImpl userDetails =new UserDetailsImpl();
-//			userDetails.setUsername(user.getUsername());
-//			userDetails.setPassword(user.getPassword());
-//			userDetails.setRoles(user.getRoles());
-//			return userDetails;
-//			
-//	    }
-	 
 }
