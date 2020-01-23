@@ -6,13 +6,14 @@ body {
 	color: white;
 }
 
-form#login {
+login {
 	font-size: 56px;
-	background: red;
+	
+	
 	color: blue;
 }
 
-.btn {
+/* .btn {
 	background-color: dodgerblue;
 	border: none;
 	color: white;
@@ -129,4 +130,4 @@ a:active {
 
 .grid-item:hover {
 	background-color: cyan;
-}
+} */

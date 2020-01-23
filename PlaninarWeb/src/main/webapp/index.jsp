@@ -6,6 +6,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+ <link rel="stylesheet" href="${pageContext.request.contextPath }/css/styles.css"> 
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
 </head>

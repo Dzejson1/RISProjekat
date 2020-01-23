@@ -46,8 +46,9 @@ public class LoginController {
 	}
 	 
 	@RequestMapping(value = "register", method = RequestMethod.POST)
-	public String saveUser(@ModelAttribute("user")Korisnik56417 u) {
+	public String saveUser(@ModelAttribute("user")Korisnik56417 u,String password) {
 		System.out.println("--------------------------------------------------------"+u.getPassword());
+		u.setPassword(password);
 	    BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 	    u.setPassword(passwordEncoder.encode(u.getPassword()));
 		

@@ -30,7 +30,6 @@ public class SecurityConfig  extends WebSecurityConfigurerAdapter{
 					.authorizeRequests()
 					.antMatchers("/auth/**")
 					.permitAll()
-				
 					.antMatchers("/izvestajControler/**",
 							"/user/**",
 							"/komentarController/**",
@@ -40,7 +39,7 @@ public class SecurityConfig  extends WebSecurityConfigurerAdapter{
 							"/stazaController/user/**",
 							"/zakazivanjeController/**",
 							"/znamenitostController/user/**")
-					.hasAnyRole("user", "admin")
+						.hasAnyRole("user", "admin")
 					.antMatchers("/planinaController/**",
 							"/admin/**",
 							"/planinarskiDomController/**", 
