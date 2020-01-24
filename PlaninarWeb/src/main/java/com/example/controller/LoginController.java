@@ -1,6 +1,8 @@
 package com.example.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -65,6 +67,17 @@ public class LoginController {
 	    korisnikRep.save(u);
 		System.out.println("SAVED");
 	    return "login";
+	}
+	
+	@RequestMapping(value = "logout", method = RequestMethod.GET)
+	public String logout() {
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		
+		if (auth != null) {
+			SecurityContextHolder.getContext().setAuthentication(null);
+		}
+		
+		return "redirect:/auth/loginPage";
 	}
 
 }

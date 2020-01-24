@@ -12,7 +12,9 @@
 </head>
 <body>
 
-<sec:authorize access="hasRole('admin')">
+
+
+ <sec:authorize access="hasRole('admin')">
 <form action="/Planinar/planinaController/admin/UnesiPlaninu" method="post">
 Unesi naziv planine<input type="text" name="naziv"><br/>
 <input type="submit" value="Dodaj">
@@ -20,6 +22,6 @@ Unesi naziv planine<input type="text" name="naziv"><br/>
 <form action="/Planinar/index.jsp">
 <input type="submit" value="Back home">
 </form>
-</sec:authorize>
+</sec:authorize> 
 </body>
 </html>

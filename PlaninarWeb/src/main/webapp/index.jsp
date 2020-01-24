@@ -6,18 +6,60 @@
 <!DOCTYPE html>
 <html>
 <head>
+<%@ include file="header.jsp"%>
  <link rel="stylesheet" href="${pageContext.request.contextPath }/css/styles.css"> 
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
 </head>
 <body>
 
- <c:url var="loginUrl" value="/perform_logout" />
+<div class="content">
+	<h1>
+		Welcome,
+		<sec:authorize access="isAuthenticated()">
+			<sec:authentication property="principal.username" />
+			<%-- <sec:authentication property="principal.lastName" /> --%>
+		</sec:authorize>
+	</h1>
+	<br>
+	
+	
+	<%-- <sec:authorize access="hasRole('admin')">
+		<h2>Orders</h2>
+		<br>
+		<form action="/WebStore/report/orders" method="get">
+			<label>Date: </label> <br> <input type="date" name="date">
+			<br> <br> <input type="submit" class="btn"
+				value="Get report">
+		</form>
+	</sec:authorize>
+	<sec:authorize access="hasRole('user')">
+		<h2>Discounts</h2>
+		<br>
+		<div class="grid-container">
+			<c:forEach var="i" items="${items }">
+				<c:if test="${i.key.stock gt 0 }">
+					<a href="/WebStore/product/user/details?idItem=${i.key.idItem }"><button
+							class="grid-item">${i.key.name } (${i.value }% off:
+							$${i.key.price - i.key.price * i.value / 100})</button></a>
+				</c:if>
+			</c:forEach>
+		</div>
+	</sec:authorize>
+	<c:if test="${not empty errMsg }">
+		<div class="erros">${errMsg }</div>
+	</c:if> --%>
+</div>
+
+
+
+
+ <%-- <c:url var="loginUrl" value="/perform_logout" />
 <form action="${loginUrl }" method="post"> 
 <input type="submit" value="Logout">
 </form><br/>
 
-<%-- <a href="<c:url value="/perform_logout" />">Logout</a><br/> --%>
+<a href="<c:url value="/perform_logout" />">Logout</a><br/>
 
 
 <sec:authorize access="hasRole('admin')">
@@ -94,7 +136,7 @@ SLIKE<br/>
 <a href="/Planinar/slikeController/user/getDodajSlike">Unesi sliku</a><br/>
 <a href="/Planinar/slikeController/user/getIzmeniSlike">Izmeni sliku</a><br/>
 <a href="/Planinar/slikeController/user/getObrisiSlike">Obrisi sliku</a><br/>
-<a href="/Planinar/user/pretraziSlike.jsp">Pretrazi slike</a><br/>
+<a href="/Planinar/user/pretraziSlike.jsp">Pretrazi slike</a><br/> --%>
 
 
 </body>

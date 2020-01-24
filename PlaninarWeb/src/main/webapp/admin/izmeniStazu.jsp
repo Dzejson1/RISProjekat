@@ -7,6 +7,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
+<link rel="stylesheet" href="${pageContext.request.contextPath }/css/styles.css">
 </head>
 <body>
 
@@ -16,18 +17,23 @@
   		<option value="${s.idStaza }">${s.opis }</option>
   	  </c:forEach>
    </sf:select> --%>
-    <select name="idS">
+  <%--   <select name="idS">
   		<c:forEach items="${staze }" var="s">
   			<option value="${s.idStaza }">${s.opis }</option>
   		</c:forEach>
-	</select> 
+	</select>  --%>
    
     <!-- Unesi opis staze -->
-     Unesi novi opis<sf:input path="opis"/> <br/>
+     Unesi novi opis<sf:input path="opis" value="${staza.opis}" /> <br/>
+           
+     Unesi novu tezinu<sf:input path="tezina" value="${staza.tezina}"/><br/>
      
-     Unesi novu tezinu<sf:input path="tezina"/><br/>
-     
-  	 Unesi novu sliku<sf:input type="file" path="mapa"/>
+  	 Unesi novu sliku<sf:input type="file" path="mapa" />
+  	 <div >
+ 		<img height="100" width="100" src="/Planinar/stazaController/user/get-image/${staza.idStaza}"/><br/><br/>
+
+
+		</div>
   
   	<td><input type="submit" value="saveButton"></td>
   	

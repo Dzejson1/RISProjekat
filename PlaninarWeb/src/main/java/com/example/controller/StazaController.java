@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -53,7 +54,23 @@ public class StazaController {
 		model.addAttribute("stazaImg", s);
 		return "admin/dodajStazu";
 	}
-
+	
+	@RequestMapping(value = "/admin/prikaziCStaze", method = RequestMethod.GET)
+	public String prikaziCStaze(HttpServletRequest request, Model model) {
+		List<Staza56417> staze = stazaRep.findAll();
+		request.getSession().setAttribute("staze", staze);
+		return "admin/staze";
+	}
+	@RequestMapping(value = "admin/pronadjiCStazu", method = RequestMethod.GET)
+	public String pronadjiCStazu(String idS,HttpServletRequest request, Model model) {
+		Staza56417 staza=stazaRep.findById(Integer.parseInt(idS)).get();
+		request.getSession().setAttribute("staza",staza);
+		StazaImage s = new StazaImage();
+		model.addAttribute("stazaImg", s);
+		return "admin/izmeniStazu";
+	}
+	
+	//obrisi
 	@RequestMapping(value = "/admin/getIzmeniStaze", method = RequestMethod.GET)
 	public String getIzmeniStaze(HttpServletRequest request, Model model) {
 		List<Staza56417> staze = stazaRep.findAll();
@@ -64,7 +81,7 @@ public class StazaController {
 	}
 
 	@RequestMapping(value = "/admin/izmeniStazu", method = RequestMethod.POST)
-	public String izmeniStazu(String idS,@ModelAttribute("stazaImg") @Valid StazaImage ss, BindingResult result) {
+	public String izmeniStazu(@ModelAttribute("stazaImg") @Valid StazaImage ss, BindingResult result,HttpServletRequest request) {
 		if (result.hasErrors()) {
 			return "error";
 		}
@@ -72,7 +89,7 @@ public class StazaController {
 		MultipartFile file = ss.getMapa();
 		if (null != file) {
 			try {
-				Staza56417 im=stazaRep.findById(Integer.parseInt(idS)).get();
+				Staza56417 im=(Staza56417)request.getSession().getAttribute("staza");
 				im.setOpis(ss.getOpis());
 				im.setTezina(ss.getTezina());
 				im.setMapa(file.getBytes());
@@ -91,7 +108,7 @@ public class StazaController {
 			}
 		}
 		//return "admin/izmeniStazu";
-		return "redirect:/stazaController/admin/getIzmeniStaze";
+		return "redirect:/stazaController/admin/prikaziCStaze";
 	}
 
 	
