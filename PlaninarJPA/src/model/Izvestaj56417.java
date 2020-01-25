@@ -4,7 +4,7 @@ import java.io.Serializable;
 import javax.persistence.*;
 
 
-/**markoooooooo
+/**markooo2
  * The persistent class for the izvestaj_564_17 database table.
  * 
  */
