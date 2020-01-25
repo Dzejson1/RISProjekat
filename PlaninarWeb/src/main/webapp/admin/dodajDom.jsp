@@ -4,10 +4,15 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="stylesheet" href="${pageContext.request.contextPath }/css/style.css"> 
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
 </head>
 <body>
+<div id="container"> 
+<%@ include file="../header.jsp"%>
+<div id="main">
+    <div id="text">
 <form action="/Planinar/planinarskiDomController/admin/dodajDom" method="post">
 <select name="idPl">
   <c:forEach items="${listaPlan }" var="l">
@@ -15,12 +20,14 @@
   </c:forEach>
 </select>
 <br/>
-Unesi naziv doma<input type="text" name="naziv"><br/>
+Unesi naziv doma <input type="text" name="naziv"><br/>
 <input type="submit" value="Dodaj">
 </form>
 <br/>
-<form action="/Planinar/index.jsp">
-<input type="submit" value="Back home">
-</form>
+</div>
+  </div>
+  <%@ include file="../footer.jsp"%>
+  </div>
+
 </body>
 </html>

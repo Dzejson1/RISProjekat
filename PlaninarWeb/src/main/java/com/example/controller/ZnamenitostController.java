@@ -22,18 +22,23 @@ import com.example.domain.ZnamenitostImage;
 import com.example.repository.KomentarRepository;
 import com.example.repository.StazaRepository;
 import com.example.repository.TipZnamenitostiRepository;
+import com.example.repository.ZakazivanjeRepository;
 import com.example.repository.ZnamenitostRepository;
 
 import model.Komentar56417;
 import model.Planina56417;
 import model.Staza56417;
 import model.Tipznamenitosti56417;
+import model.Zakazivanjeznamenitosti56417;
 import model.Znamenitost56417;
 
 @Controller
 @RequestMapping(value = "/znamenitostController")
 public class ZnamenitostController {
-
+	int i=0;
+	@Autowired
+	ZakazivanjeRepository zakazivanjeRep;
+	
 	@Autowired
 	StazaRepository stazaRep;
 	
@@ -46,7 +51,7 @@ public class ZnamenitostController {
 	KomentarRepository komRep;
 	
 	@RequestMapping(value = "/admin/getDodajZnamenitost",method = RequestMethod.GET)
-	public String getDodajZnamenitost(String opisS,HttpServletRequest request,Model model) {
+	public String getDodajZnamenitost(HttpServletRequest request,Model model) {
 		List<Staza56417>listaS=stazaRep.findAll();
 		List<Tipznamenitosti56417>listaTR=tipZnamRep.findAll();
 		ZnamenitostImage z=new ZnamenitostImage();
@@ -55,6 +60,39 @@ public class ZnamenitostController {
 		request.getSession().setAttribute("listaTR", listaTR);
 		
 		return "admin/dodajZnamenitost";
+	}
+	@RequestMapping(value = "/admin/odaberiCStazeTipove",method = RequestMethod.GET)
+	public String odaberiCStazeTipove(String idZ,HttpServletRequest request,Model model) {
+		List<Staza56417>listaS=stazaRep.findAll();
+		List<Tipznamenitosti56417>listaTR=tipZnamRep.findAll();
+		Znamenitost56417 znam=znamRep.findById(Integer.parseInt(idZ)).get();
+		ZnamenitostImage z=new ZnamenitostImage();
+		model.addAttribute("znamImg", z);
+		request.getSession().setAttribute("znam", znam);
+		request.getSession().setAttribute("listaS", listaS);
+		request.getSession().setAttribute("listaTR", listaTR);
+		return "admin/editZnamenitost";
+	}
+	
+	@RequestMapping(value = "/admin/preusmeriStazu",method = RequestMethod.GET)
+	public String preusmeriStazu(HttpServletRequest request,Model model) {
+		List<Staza56417>listaS=stazaRep.findAll();
+		List<Tipznamenitosti56417>listaTR=tipZnamRep.findAll();
+		Znamenitost56417 znam=(Znamenitost56417)request.getSession().getAttribute("znam");
+		ZnamenitostImage z=new ZnamenitostImage();
+		model.addAttribute("znamImg", z);
+		request.getSession().setAttribute("znam", znam);
+		request.getSession().setAttribute("listaS", listaS);
+		request.getSession().setAttribute("listaTR", listaTR);
+		return "admin/editZnamenitost";
+	}
+	
+	@RequestMapping(value = "/admin/prikaziCZnamenitosti",method = RequestMethod.GET)
+	public String prikaziCZnamenitosti(HttpServletRequest request,Model model) {
+		List<Znamenitost56417>listaZ=znamRep.findAll();
+		request.getSession().setAttribute("znamenitosti", listaZ);
+		
+		return "admin/znamenitosti";
 	}
 	
 	@RequestMapping(value = "/admin/getObrisiZnamenitost",method = RequestMethod.GET)
@@ -78,15 +116,23 @@ public class ZnamenitostController {
 	
 	
 	
-	@RequestMapping(value = "/admin/ObrisiZnamenitost",method = RequestMethod.POST)
+	@RequestMapping(value = "/admin/ObrisiZnamenitost",method = RequestMethod.GET)
 	public String ObrisiZnamenitost(String idZ,HttpServletRequest request) {
 		Znamenitost56417 z=znamRep.findById(Integer.parseInt(idZ)).get();
 		List<Komentar56417>listaK=komRep.findByZnamenitost56417(z);
-		for(Komentar56417 k:listaK)
+		List<Zakazivanjeznamenitosti56417>listaZ=zakazivanjeRep.findByZnamenitost56417(z);
+		for(Komentar56417 k:listaK) {
 			komRep.delete(k);
+			
+		}
+		for(Zakazivanjeznamenitosti56417 zz:listaZ) {
+			zakazivanjeRep.delete(zz);
+		}
+		
+		
 		znamRep.delete(z);
 		//return "admin/obrisiZnamenitost";
-		return "redirect:/znamenitostController/admin/getObrisiZnamenitost";
+		return "redirect:/znamenitostController/admin/prikaziCZnamenitosti";
 	}
 //	@RequestMapping(value = "/admin/dodajZnamenitost",method = RequestMethod.POST)
 //	public String dodajZnamenitost(String idS,String idT,String opisZ,HttpServletRequest request) {
@@ -101,14 +147,14 @@ public class ZnamenitostController {
 //	}
 	
 	@RequestMapping(value = "/admin/izmeniZnamenitost", method = RequestMethod.POST)
-	public String izmeniZnamenitost(String idZ,@ModelAttribute("znamImg") @Valid ZnamenitostImage ss, BindingResult result) {
+	public String izmeniZnamenitost(String idZ,@ModelAttribute("znamImg") @Valid ZnamenitostImage ss, BindingResult result,HttpServletRequest request) {
 		if (result.hasErrors()) {
 			return "error";
 		}
 		MultipartFile file = ss.getSlika();
 		if (null != file) {
 			try {
-				Znamenitost56417 znam=znamRep.findById(Integer.parseInt(idZ)).get();
+				Znamenitost56417 znam=(Znamenitost56417)request.getSession().getAttribute("znam");
 				znam.setOpis(ss.getOpis());
 				znam.setSlika(file.getBytes());
 				znam.setTipznamenitosti56417(ss.getTipznamenitosti56417());
@@ -124,7 +170,7 @@ public class ZnamenitostController {
 			}
 		}
 		
-		return "redirect:/znamenitostController/admin/getIzmeniZnamenitost";
+		return "redirect:/znamenitostController/admin/preusmeriStazu";
 	}
 	
 	@RequestMapping(value = "/admin/dodajZnamenitost",method = RequestMethod.POST)

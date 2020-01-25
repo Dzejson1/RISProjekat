@@ -25,7 +25,11 @@
   <div id="menu"> <a href="/Planinar/index.jsp">Home</a> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
   <a href="/Planinar/planinaController/admin/prikaziCPlanine">Planine</a> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
   <a href="/Planinar/stazaController/admin/prikaziCStaze">Staza</a> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
-  <a href="#">Pricing</a> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+  <a href="/Planinar/znamenitostController/admin/prikaziCZnamenitosti">Znamenitosti</a> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+  <a href="/Planinar/tipZnamenitostiController/admin/getEditTipoveZnamenitosti">Tip znamenitosti</a> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+
+  <a href="/Planinar/planinarskiDomController/admin/prikaziDomove">Planinarski dom</a> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+  <a href="/Planinar/korisnikController/admin/UnesiKorisnika">Korisnik</a> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
   <a href="/Planinar/auth/logout">Log out</a>
   </div>
 </sec:authorize>

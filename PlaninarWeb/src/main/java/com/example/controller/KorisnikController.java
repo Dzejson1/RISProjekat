@@ -56,10 +56,12 @@ public class KorisnikController {
 //}
 	@RequestMapping(value = "/user/getDodajKorisnika", method = RequestMethod.GET)
 	public String newUser(Model model) {
-	Korisnik56417 k=new Korisnik56417();
-	model.addAttribute("user", k);
-	return "user/dodajKorisnika";
-}
+		Korisnik56417 k = new Korisnik56417();
+		model.addAttribute("user", k);
+		return "user/dodajKorisnika";
+	}
+	
+	
 	@RequestMapping(value = "/user/dodajKorisnika", method = RequestMethod.POST)
 	public String saveUser(@ModelAttribute("user") Korisnik56417 u,Date datum) {
 		System.out.println(("usooooooooooooooooooooooo"));
@@ -89,12 +91,36 @@ public class KorisnikController {
 		return "user/dodajKorisnika";
 	}
 	
+	@RequestMapping(value = "/admin/UnesiKorisnika",method = RequestMethod.GET)
+	public String dodajKorisnika(HttpServletRequest request) {
+		List<Korisnik56417>korisnici=korisRep.findAll();
+		request.getSession().setAttribute("korisnici", korisnici);
+		return "admin/korisnik";
+	}
+	
+	@RequestMapping(value = "/admin/promeniDatumIsteka",method = RequestMethod.GET)
+	public String promeniDatumIsteka(String idK,HttpServletRequest request) {
+		Korisnik56417 korisnik=korisRep.findById(Integer.parseInt(idK)).get();
+		request.getSession().setAttribute("korisnik", korisnik);
+		return "admin/izmeniDatum";
+	}
+	
 	@RequestMapping(value = "/user/getIzmeniKorisnika",method = RequestMethod.GET)
 	public String IzmeniKorisnika(HttpServletRequest request) {
 		List<Korisnik56417>korisnici=korisRep.findAll();
 		request.getSession().setAttribute("korisnici", korisnici);
 		return "user/izmeniKorisnika";
 	}
+	
+	@RequestMapping(value = "/admin/izmeniDatumIsteka",method = RequestMethod.GET)
+	public String izmeniDatumIsteka(Date datum,HttpServletRequest request) {
+		Korisnik56417 kor=(Korisnik56417)request.getSession().getAttribute("korisnik");
+		kor.setDatumIsteka(datum);
+		  //return "redirect:/korisnikController/admin/UnesiKorisnik";     //STO NECE OVO A OCE OVAJ DOLE RETURN!!!!
+		//return "redirect:/korisnikController/user/getIzmeniKorisnika";
+		return "admin/korisnik";
+	}
+	
 	@RequestMapping(value = "/user/izmeniKorisnika",method = RequestMethod.POST)
 	public String izmeniKorisnika(String username,String password,String ime,String prezime,String idK,HttpServletRequest request) {
 		Korisnik56417 kor=korisRep.findById(Integer.parseInt(idK)).get();

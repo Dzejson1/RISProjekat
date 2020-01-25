@@ -8,18 +8,23 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+<div id="container"> 
+<%@ include file="../header.jsp"%>
+<div id="main">
+    <div id="text">  
 <c:if test="${! empty listaEditTipZnam }">
 <form action="/Planinar/tipZnamenitostiController/admin/editTipZnamenitosti" method="post">
-<select name="idETipZ">
-  <c:forEach items="${listaEditTipZnam }" var="l">
- 	 <option value="${l.idTipZnamenitosti }">${l.opis }</option>
-  </c:forEach>
-</select>
+
+
+Unesi novi opis znamenitosti<input type="text" value="${tipZ.opis }" name="eOpis">
 <br/>
-Unesi novi opis znamenitosti<input type="text" name="eOpis">
+<br/>
 <input type="submit" value="Edit">
 </form>
 </c:if><br/>
+ </div>
+  </div>
+  <%@ include file="../footer.jsp"%>
+  </div>
 </body>
 </html>

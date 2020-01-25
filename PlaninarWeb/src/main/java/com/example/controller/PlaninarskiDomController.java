@@ -33,10 +33,25 @@ public class PlaninarskiDomController {
 	public String dodajKorisnika(HttpServletRequest request) {
 		List<Planina56417> listaPlan = planinaRep.findAll();
 		request.getSession().setAttribute("listaPlan", listaPlan);
-	
-		
 		return "admin/dodajDom";
 	}
+	@RequestMapping(value = "/admin/prikaziDomove",method = RequestMethod.GET)
+	public String prikaziDomove(HttpServletRequest request) {
+		List<Planinarskidom56417>listaDom=planDomRep.findAll();
+		request.getSession().setAttribute("listaDom", listaDom);
+		return "admin/domovi";
+	}
+	
+	@RequestMapping(value = "/admin/editujDom",method = RequestMethod.GET)
+	public String editujDom(String idD,HttpServletRequest request) {
+		Planinarskidom56417 dom=planDomRep.findById(Integer.parseInt(idD)).get();
+		List<Planina56417> listaPlan = planinaRep.findAll();
+		request.getSession().setAttribute("dom", dom);
+		request.getSession().setAttribute("listaPlan", listaPlan);
+		return "admin/izmeniDom";
+	}
+	
+	
 	@RequestMapping(value = "/admin/dodajDom",method = RequestMethod.POST)
 	public String dodajDom(String idPl,String naziv,HttpServletRequest request) {
 		Planina56417 plan=planinaRep.findById(Integer.parseInt(idPl)).get();
@@ -56,14 +71,14 @@ public class PlaninarskiDomController {
 		
 		return "admin/izmeniDom";
 	}
-	@RequestMapping(value = "/admin//izmeniDom",method = RequestMethod.POST)
-	public String izmeniDom(String idDom,String idPl,String naziv,HttpServletRequest request) {
-		Planina56417 plan=planinaRep.findById(Integer.parseInt(idPl)).get();
-		Planinarskidom56417 dom=planDomRep.findById(Integer.parseInt(idDom)).get();
+	@RequestMapping(value = "/admin/izmeniDom",method = RequestMethod.POST)
+	public String izmeniDom(String idP,String naziv,HttpServletRequest request) {
+		Planina56417 plan=planinaRep.findById(Integer.parseInt(idP)).get();
+		Planinarskidom56417 dom=(Planinarskidom56417)request.getSession().getAttribute("dom");
 		dom.setPlanina56417(plan);
 		dom.setNaziv(naziv);
 		planDomRep.save(dom);
-		return "redirect:/planinarskiDomController/admin/getIzmeniDom";
+		return "redirect:/planinarskiDomController/admin/prikaziDomove";
 	}
 	
 }

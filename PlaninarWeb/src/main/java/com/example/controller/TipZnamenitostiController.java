@@ -36,7 +36,7 @@ public class TipZnamenitostiController {
 	public String getEditTipZnamenitosti(HttpServletRequest request) {
 		List<Tipznamenitosti56417> listaTipZnam=tipZnamRep.findAll();
 		request.getSession().setAttribute("listaEditTipZnam", listaTipZnam);
-		return "admin/editTipZnamenitosti";
+		return "admin/tipznamenitosti";
 	}
 	@RequestMapping(value = "/admin/getObrisiTipoveZnamenitosti",method = RequestMethod.GET)
 	public String getObrisiTipZnamenitosti(HttpServletRequest request) {
@@ -46,15 +46,26 @@ public class TipZnamenitostiController {
 	}
 	
 	@RequestMapping(value = "/admin/obrisiTipZnamenitosti",method = RequestMethod.GET)
-	public String obrisiTipZnamenitosti(String idOTipZ,HttpServletRequest request) {
-		Tipznamenitosti56417 tipZ=tipZnamRep.findById(Integer.parseInt(idOTipZ)).get();
+	public String obrisiTipZnamenitosti(String idTZ,HttpServletRequest request) {
+		Tipznamenitosti56417 tipZ=tipZnamRep.findById(Integer.parseInt(idTZ)).get();
+		
+		//System.out.println("--------------------------------------------------------------------------------------------"+tipZ.getIdTipZnamenitosti());
 		tipZnamRep.delete(tipZ);
-		return "redirect:/tipZnamenitostiController/admin/getObrisiTipoveZnamenitosti";
+		//System.out.println("-----------------------------------------------------------------------------------------------------------------------");
+		return "redirect:/tipZnamenitostiController/admin/getEditTipoveZnamenitosti";
 	}
 	
+	
+	@RequestMapping(value = "/admin/editTipoveZnamenitosti",method = RequestMethod.GET)
+	public String editTipCZnamenitosti(String idTZ,HttpServletRequest request) {
+		Tipznamenitosti56417 tipZ=tipZnamRep.findById(Integer.parseInt(idTZ)).get();
+		request.getSession().setAttribute("tipZ", tipZ);
+		return "admin/editTipZnamenitosti";
+	}
+	//brisi verovatno
 	@RequestMapping(value = "/admin/editTipZnamenitosti",method = RequestMethod.POST)
-	public String editTipZnamenitosti(String idETipZ,String eOpis,HttpServletRequest request) {
-		Tipznamenitosti56417 tipZ=tipZnamRep.findById(Integer.parseInt(idETipZ)).get();
+	public String editTipZnamenitosti(String eOpis,HttpServletRequest request) {
+		Tipznamenitosti56417 tipZ=(Tipznamenitosti56417)request.getSession().getAttribute("tipZ");
 		tipZ.setOpis(eOpis);
 		tipZnamRep.save(tipZ);
 		return "redirect:/tipZnamenitostiController/admin/getEditTipoveZnamenitosti";
