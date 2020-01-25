@@ -7,40 +7,56 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
-<link rel="stylesheet" href="${pageContext.request.contextPath }/css/styles.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/css/style.css">
 </head>
 <body>
-
+<div id="container"> 
+<%@ include file="../header.jsp"%>
+<div id="main">
+    <div id="text">  
 <sf:form modelAttribute="stazaImg"  action="/Planinar/stazaController/admin/izmeniStazu"  method="post" enctype="multipart/form-data">
-   <%-- <sf:select path="planina56417">
-      <c:forEach items="${staze }" var="s">
-  		<option value="${s.idStaza }">${s.opis }</option>
-  	  </c:forEach>
-   </sf:select> --%>
-  <%--   <select name="idS">
-  		<c:forEach items="${staze }" var="s">
-  			<option value="${s.idStaza }">${s.opis }</option>
-  		</c:forEach>
-	</select>  --%>
-   
+ 
+   <br/>
+		<br/>
+		<br/>
+		<br/>
     <!-- Unesi opis staze -->
-     Unesi novi opis<sf:input path="opis" value="${staza.opis}" /> <br/>
+     Unesi novi opis  <sf:input path="opis" value="${staza.opis}" /> <br/>
+     <br/>
+		<br/>
+		<br/>
+		<br/>
            
-     Unesi novu tezinu<sf:input path="tezina" value="${staza.tezina}"/><br/>
+     Unesi novu tezinu  <sf:input path="tezina" value="${staza.tezina}"/><br/>
+     <br/>
+		<br/>
+		<br/>
+		<br/>
      
-  	 Unesi novu sliku<sf:input type="file" path="mapa" />
+  	 Unesi novu sliku  <sf:input type="file" path="mapa" />
+  	 <br/>
+		<br/>
+		<br/>
+		<br/>
   	 <div >
  		<img height="100" width="100" src="/Planinar/stazaController/user/get-image/${staza.idStaza}"/><br/><br/>
 
 
 		</div>
+		<br/>
+		<br/>
+		<br/>
+		<br/>
   
   	<td><input type="submit" value="saveButton"></td>
   	
 </sf:form><br/>
-<form action="/Planinar/index.jsp">
-<input type="submit" value="Back home">
-</form>
+
+</div>
+  </div>
+  <%@ include file="../footer.jsp"%>
+  </div>
+
 
 
 

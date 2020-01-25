@@ -46,6 +46,9 @@ public class StazaController {
 //		return "index1";
 //	}
 
+	
+	
+	
 	@RequestMapping(value = "/admin/getDodajPlanine", method = RequestMethod.GET)
 	public String getDodajPlanine(HttpServletRequest request, Model model) {
 		List<Planina56417> listaPlan = planinaRep.findAll();
@@ -85,6 +88,8 @@ public class StazaController {
 		if (result.hasErrors()) {
 			return "error";
 		}
+		//List<Staza>lista...
+		
 		System.out.println("-------------------");
 		MultipartFile file = ss.getMapa();
 		if (null != file) {

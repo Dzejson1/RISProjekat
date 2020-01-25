@@ -1,10 +1,10 @@
-body {
+ body {
 	font-family: "Times New Roman, Times, serif";
 	text-align: center;
 	background-color: cyan;
 	text-align: center;
 	color: white;
-}
+} 
 
 login {
 	font-size: 56px;
@@ -76,7 +76,7 @@ th, td {
 }
 
 tr:nth-child(even) {
-	background-color: slateblue;
+	background-color: red;
 }
 
 .insert {

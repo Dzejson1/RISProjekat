@@ -6,22 +6,40 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="${pageContext.request.contextPath }/css/styles.css">
+ <link rel="stylesheet" href="${pageContext.request.contextPath }/css/style.css"> 
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
 </head>
 <body>
-
-
-
- <sec:authorize access="hasRole('admin')">
+<div id="container"> 
+<%@ include file="../header.jsp"%>
+<div id="main">
+    <div id="text"> 
+    
+     <sec:authorize access="hasRole('admin')">
 <form action="/Planinar/planinaController/admin/UnesiPlaninu" method="post">
-Unesi naziv planine<input type="text" name="naziv"><br/>
+<br/>
+		<br/>
+		<br/>
+Unesi naziv planine  <input type="text" name="naziv"><br/>
+<br/>
+		<br/>
+		<br/>
+		<br/>
+		<br/>
 <input type="submit" value="Dodaj">
 </form><br/>
-<form action="/Planinar/index.jsp">
-<input type="submit" value="Back home">
-</form>
+
 </sec:authorize> 
+    
+    </div>
+  </div>
+  <%@ include file="../footer.jsp"%>
+  </div>
+    
+    
+
+
+
 </body>
 </html>

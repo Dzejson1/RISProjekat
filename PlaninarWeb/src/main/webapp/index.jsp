@@ -6,25 +6,62 @@
 <!DOCTYPE html>
 <html>
 <head>
-<%@ include file="header.jsp"%>
- <link rel="stylesheet" href="${pageContext.request.contextPath }/css/styles.css"> 
+
+ <link rel="stylesheet" href="${pageContext.request.contextPath }/css/style.css"> 
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
 </head>
 <body>
 
-<div class="content">
+<div id="container">
+
+<%@ include file="header.jsp"%>
+
+
+<div id="main">
+  
+    content
+	
+	
+    <div id="text">
+		<h1>
+		Welcome,
+		<sec:authorize access="isAuthenticated()">
+			<sec:authentication property="principal.username" />
+		</sec:authorize>
+		</h1>
+    </div>
+	
+	content
+   
+  </div>
+  
+  
+  <%@ include file="footer.jsp"%>
+  
+  
+</div>
+
+
+
+
+
+
+
+
+
+<%-- <div class="content">
 	<h1>
 		Welcome,
 		<sec:authorize access="isAuthenticated()">
 			<sec:authentication property="principal.username" />
-			<%-- <sec:authentication property="principal.lastName" /> --%>
+			<sec:authentication property="principal.lastName" />
 		</sec:authorize>
 	</h1>
 	<br>
 	
 	
-	<%-- <sec:authorize access="hasRole('admin')">
+	<sec:authorize access="hasRole('admin')">
 		<h2>Orders</h2>
 		<br>
 		<form action="/WebStore/report/orders" method="get">
@@ -48,8 +85,8 @@
 	</sec:authorize>
 	<c:if test="${not empty errMsg }">
 		<div class="erros">${errMsg }</div>
-	</c:if> --%>
-</div>
+	</c:if>
+</div> --%>
 
 
 

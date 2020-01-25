@@ -10,7 +10,10 @@
 </head>
 <body>
 
-
+<div id="container"> 
+<%@ include file="../header.jsp"%>
+<div id="main">
+    <div id="text"> 
 
 
 <%-- <form action="/Planinar/stazaController/admin/UnesiStazu" method="post">
@@ -27,22 +30,28 @@ Unesi opis staze<input type="text" name="opisS"><br/>
   
   
   
-   <sf:select path="planina56417">
+  Izaberi planinu <sf:select path="planina56417">
       <c:forEach items="${listaPlan}" var="l">
  	      <option value="${l.idPlanina }">${l.naziv}</option>
       </c:forEach>
    </sf:select>
-    
+    <br/>
+		<br/>
+		<br/>
     
     <!-- Unesi opis staze -->
-     <sf:input path="opis"/> <br/>
-    
+    Unesi opis <sf:input path="opis"/> <br/>
+    <br/>
+		<br/>
+		<br/>
   
   	
   		
-  	  <sf:input type="file" path="mapa"/>
+  	 Unesi sliku <sf:input type="file" path="mapa"/>
   
-  	
+  	<br/>
+		<br/>
+		<br/>
   	
   	
   	<td><input type="submit" value="saveButton"></td>
@@ -50,13 +59,13 @@ Unesi opis staze<input type="text" name="opisS"><br/>
   	
   	
 </sf:form>
+</div>
+  </div>
+  <%@ include file="../footer.jsp"%>
+  </div>
 
 
 
-
-<form action="/Planinar/index.jsp">
-<input type="submit" value="Back home">
-</form>
 
 
 
