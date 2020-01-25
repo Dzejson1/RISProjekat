@@ -111,7 +111,7 @@ public class KorisnikController {
 		request.getSession().setAttribute("korisnici", korisnici);
 		return "user/izmeniKorisnika";
 	}
-	
+	 
 	@RequestMapping(value = "/admin/izmeniDatumIsteka",method = RequestMethod.GET)
 	public String izmeniDatumIsteka(Date datum,HttpServletRequest request) {
 		Korisnik56417 kor=(Korisnik56417)request.getSession().getAttribute("korisnik");
