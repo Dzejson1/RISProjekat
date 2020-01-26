@@ -5,6 +5,17 @@ padding: 50px 0 50px 0;
 font-family: "Myriad Pro";
 color:black;
 text-align: center;
+
+
+/* scrollbar-face-color:#FFFF99;
+scrollbar-highlight-color:#8693A3;
+scrollbar-3dlight-color:#8F9DAE;
+scrollbar-darkshadow-color:#0D2748;
+scrollbar-shadow-color:#8693A3;
+scrollbar-arrow-color:#0D2748;
+scrollbar-track-color:#989890; */
+
+
 }
 table {
   border-collapse: collapse;
@@ -54,7 +65,10 @@ border-right: 1px #FFFFFF solid;
 #menu a {
 color: #F8FCF7;
 text-decoration: none; 
-font-size: 16px; 
+/* font-size: 16px;  */
+
+font-size: 11px; 
+
 text-transform: uppercase;
 }
 
@@ -113,6 +127,7 @@ font-size: 14px;
 line-height: 19px;
 text-align: center;
 
+
 } 
 
 #text a {
@@ -158,3 +173,191 @@ color:#FFFFFF;
 .clear {
 clear:both;
 }
+
+
+
+
+/*  input[type="text"] {
+  width: 20%;
+  border: 2px solid #aaa;
+  border-radius: 4px;
+  margin: 8px 0;
+  outline: none;
+  padding: 8px;
+  box-sizing: border-box;
+  transition: 0.3s;
+}
+
+input[type="text"]:focus {
+  border-color: dodgerBlue;
+  box-shadow: 0 0 8px 0 dodgerBlue;
+} */
+
+ 
+ 
+ 
+ @import url(https://fonts.googleapis.com/css?family=Lily+Script+One);
+
+/* body {
+	background:url(../images/bg.gif);
+	margin:0;
+	font-family:arial,tahoma,sans-serif;
+	font-size:12px;
+	font-weight:normal;
+	direction:ltr;
+  background:white;
+} */
+
+form {
+	margin:10% auto 0 auto;
+	padding:30px;
+	width:400px;
+	height:auto;
+	overflow:hidden;
+	background:white;
+	border-radius:10px;
+}
+
+form label {
+	font-size:14px;
+	color:darkgray;
+	cursor:pointer;
+}
+
+form label,
+form input {
+	float:left;
+	clear:both;
+}
+
+form input {
+	margin:15px 0;
+	padding:15px 10px;
+	width:100%;
+	outline:none;
+	border:1px solid #bbb;
+	border-radius:20px;
+	display:inline-block;
+	-webkit-box-sizing:border-box;
+	   -moz-box-sizing:border-box;
+	        box-sizing:border-box;
+    -webkit-transition:0.2s ease all;
+	   -moz-transition:0.2s ease all;
+	    -ms-transition:0.2s ease all;
+	     -o-transition:0.2s ease all;
+	        transition:0.2s ease all;
+}
+
+form input[type=text]:focus,
+form input[type="password"]:focus {
+	border-color:cornflowerblue;
+}
+
+input[type=submit] {
+	padding:15px 50px;
+	width:auto;
+	background:#1abc9c;
+	border:none;
+	color:white;
+	cursor:pointer;
+	display:inline-block;
+	float:right;
+	clear:right;
+	-webkit-transition:0.2s ease all;
+	   -moz-transition:0.2s ease all;
+	    -ms-transition:0.2s ease all;
+	     -o-transition:0.2s ease all;
+	        transition:0.2s ease all;
+}
+
+input[type=submit]:hover {
+	opacity:0.8;
+}
+
+input[type="submit"]:active {
+	opacity:0.4;
+}
+
+.forgot,
+.register {
+	margin:10px;
+	float:left;
+	clear:left;
+	display:inline-block;
+	color:cornflowerblue;
+	text-decoration:none;
+}
+
+.forgot:hover,
+.register:hover {
+	color:darkgray;
+}
+
+/* #logo {
+	margin:0 auto;
+	width:200px;
+	font-family:'Lily Script One', cursive;
+	font-size:60px;
+	font-weight:bold;
+	text-align:center;
+	color:lightgray;
+	-webkit-transition:0.2s ease all;
+	   -moz-transition:0.2s ease all;
+	    -ms-transition:0.2s ease all;
+	     -o-transition:0.2s ease all;
+	        transition:0.2s ease all;
+}
+
+#logo:hover {
+	color:cornflowerblue;
+}
+  */
+ 
+
+
+ select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  display: block;
+  margin: 0 auto 1em auto;
+  padding: .5em;
+  padding-right: 1.5em;
+  width: auto;
+  min-width: 200px;
+  outline: none;
+  font-family: sans-serif;
+  font-size: 12pt;
+  font-weight: 400;
+  text-indent: 0.01px;
+  text-overflow: '';
+  border: 1px solid rgba(255,255,255,.7);
+  border-radius: 2px;
+  color: rgba(0,0,0,.7);
+  background-color: rgba(255,255,255,.5);
+  background-repeat: no-repeat;
+  background-position: calc(100% - .5em) 50%;
+  background-size: 12px;
+  transition: all .2s ease-in-out;
+  box-shadow: rgba(0,0,0,.15) 0 1px 0;
+}
+select::-ms-expand {
+  display: none;
+}
+select:focus {
+  border-color: orange;
+  box-shadow: #fc0 0 0 3px;
+}
+
+Light Theme
+select.sel-light {
+  color: rgba(0,0,0,.7);
+  background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNiAxNiI+DQo8cG9seWdvbiBvcGFjaXR5PSIwLjciIHBvaW50cz0iMCw0IDE2LDQgOCwxMiIvPg0KPC9zdmc+DQo=');dark arrow
+}
+select.sel-light:active {
+  background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNiAxNiI+PHBvbHlnb24gb3BhY2l0eT0iMC41IiBwb2ludHM9IjAsNCAxNiw0IDgsMTIiLz48L3N2Zz4=');
+} 
+
+
+
+

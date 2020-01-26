@@ -20,6 +20,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.example.domain.StazaImage;
 import com.example.domain.ZnamenitostImage;
 import com.example.repository.KomentarRepository;
+import com.example.repository.PlaninaRepository;
 import com.example.repository.StazaRepository;
 import com.example.repository.TipZnamenitostiRepository;
 import com.example.repository.ZakazivanjeRepository;
@@ -47,8 +48,39 @@ public class ZnamenitostController {
 	
 	@Autowired
 	ZnamenitostRepository znamRep;
+	
 	@Autowired
 	KomentarRepository komRep;
+	
+	@Autowired
+	PlaninaRepository planRep;
+	
+	
+	
+	
+	@RequestMapping(value = "/user/prikaziSveZnamenitosti",method = RequestMethod.GET)
+	public String prikaziSveZnamenitosti(String idS,HttpServletRequest request) {
+		Staza56417 staza=stazaRep.findById(Integer.parseInt(idS)).get();
+		
+		List<Znamenitost56417>listaZ=znamRep.findByStaza56417(staza);
+		request.getSession().setAttribute("listaZ", listaZ);
+		return "user/prikaziZnamenitosti";
+	}
+	@RequestMapping(value = "/user/prikaziStaze",method = RequestMethod.GET)
+	public String prikaziStaze(String idP,HttpServletRequest request,Model model) {
+		Planina56417 plan=planRep.findById(Integer.parseInt(idP)).get();
+		List<Staza56417>listaS=stazaRep.findByPlanina56417(plan);
+		request.getSession().setAttribute("staze", listaS);
+		return "user/prikaziStaze";
+	}
+	
+	@RequestMapping(value = "/user/prikaziPlanine",method = RequestMethod.GET)
+	public String prikaziPlanine(HttpServletRequest request,Model model) {
+		List<Planina56417>listaP=planRep.findAll();
+		request.getSession().setAttribute("planine",listaP);
+		return "user/prikazPlanina";
+	}
+	
 	
 	@RequestMapping(value = "/admin/getDodajZnamenitost",method = RequestMethod.GET)
 	public String getDodajZnamenitost(HttpServletRequest request,Model model) {
@@ -159,10 +191,12 @@ public class ZnamenitostController {
 				znam.setSlika(file.getBytes());
 				znam.setTipznamenitosti56417(ss.getTipznamenitosti56417());
 				znam.setStaza56417(ss.getStaza56417());
-				if(ss.isPotrebnoZakPom())
-					znam.setPotrebnoZakazati((byte)1);
-				else
-					znam.setPotrebnoZakazati((byte)0);
+				
+				//if(ss.isPotrebnoZakPom())
+					//znam.setPotrebnoZakazati((byte)1);
+				//else
+					//znam.setPotrebnoZakazati((byte)0);
+				znam.setPotrebnoZakazati(ss.isPotrebnoZakPom());
 				znamRep.save(znam);
 			}
 			catch (Exception e) {
@@ -189,10 +223,11 @@ public class ZnamenitostController {
 				znam.setStaza56417(ss.getStaza56417());
 				znam.setSlika(file.getBytes());
 				//znam.setPotrebnoZakazati(ss.isPotrebnoZakPom());
-				if(ss.isPotrebnoZakPom())
-					znam.setPotrebnoZakazati((byte)1);
-				else
-					znam.setPotrebnoZakazati((byte)0);
+				//if(ss.isPotrebnoZakPom())
+					//znam.setPotrebnoZakazati((byte)1);
+				//else
+					//znam.setPotrebnoZakazati((byte)0);
+				znam.setPotrebnoZakazati(ss.isPotrebnoZakPom());
 				znamRep.save(znam);
 				
 				// cuva u sliku u bazi

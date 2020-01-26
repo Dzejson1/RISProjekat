@@ -21,7 +21,7 @@ public class Znamenitost56417 implements Serializable {
 
 	private String opis;
 
-	private byte potrebnoZakazati;
+	private boolean potrebnoZakazati;
 
 	@Lob
 	private byte[] slika;
@@ -63,11 +63,12 @@ public class Znamenitost56417 implements Serializable {
 		this.opis = opis;
 	}
 
-	public byte getPotrebnoZakazati() {
-		return this.potrebnoZakazati;
+
+	public boolean isPotrebnoZakazati() {
+		return potrebnoZakazati;
 	}
 
-	public void setPotrebnoZakazati(byte potrebnoZakazati) {
+	public void setPotrebnoZakazati(boolean potrebnoZakazati) {
 		this.potrebnoZakazati = potrebnoZakazati;
 	}
 

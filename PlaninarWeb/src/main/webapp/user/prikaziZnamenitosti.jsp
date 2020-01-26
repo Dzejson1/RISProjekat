@@ -30,24 +30,40 @@
 	<table border="1">
 		<tr>
 			<th>Name</th>
-			<th>Editovanje</th>
-			<th>Brisanje</th>
+			<th>Slika</th>
+			<th>Unesi komentar</th>
+			<th>Zakazi</th>
 			
 		</tr>
-		<c:if test="${not empty listaEditTipZnam}">
-			<c:forEach var="i" items="${listaEditTipZnam}">
+		<c:if test="${not empty listaZ}">
+			<c:forEach var="i" items="${listaZ}">
 				<tr>
 					<td>${i.opis }</td>
-					
+					<td>
+					<div >
+ 						<img height="100" width="100" src="/Planinar/znamenitostController/user/get-image/${i.idZnamenitost}"/><br/><br/>
+					</div> 
+					</td>
 					<td><a
-						href="/Planinar/tipZnamenitostiController/admin/editTipoveZnamenitosti?idTZ=${i.idTipZnamenitosti }">Edit</a></td>
-						<td><a
-						href="/Planinar/tipZnamenitostiController/admin/obrisiTipZnamenitosti?idTZ=${i.idTipZnamenitosti }">Obrisii</a></td>
+						href="/Planinar/komentarController/user/unesiKomentarZ?idZ=${i.idZnamenitost }">Unesi komentar</a></td>
+					<td>
+					<c:if test="${i.potrebnoZakazati }">
+					
+					<a
+						href="/Planinar/zakazivanjeController/user/unesiDatumZakaz?idZ=${i.idZnamenitost }">Zakazi
+						
+					</a>
+					</c:if>
+					<c:if test="${!i.potrebnoZakazati }">
+						<h1>Ne treba zakazivanje!</h1>
+					</c:if>
+					</td>
+						
 				</tr>
 			</c:forEach>
 		</c:if>
 	</table>
-	<a class="insert" href="/Planinar/admin/dodajTipZnamenitosti.jsp">Add</a>
+
  </div>
 		 
 		

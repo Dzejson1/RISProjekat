@@ -30,8 +30,37 @@
   	  <br/>
   	  Unesi novi opis  <sf:input path="opis" value="${znam.opis}"/> <br/>
 <br/>
+
   	  <br/>
-	  Biraj da li je potrebno zakazati  <sf:checkbox path="potrebnoZakPom" value="${staza.potrebnoZakazati}"/><br/>
+  	  ///////////////////////////////////////////////////////////////////////////////////////////////////
+  	  <%-- <c:if test="${znam.potrebnoZakazati==1}">
+  	  
+  	  Biraj da li je potrebno zakazati  <sf:checkbox path="potrebnoZakPom" checked/><br/>
+  	  </c:if>
+  	  <c:if test="${znam.potrebnoZakazati==0}">
+  	  Biraj da li je potrebno zakazati  <sf:checkbox path="potrebnoZakPom"/><br/>
+  	  </c:if> --%>
+  	  ////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	 <%--   Biraj da li je potrebno zakazati  <sf:checkbox path=potrebnoZakPom" value=<%=${znam.potrebnoZakazati}==1?"True":"False" %>/><br/> --%> 
+	   <%-- Biraj da li je potrebno zakazati  <sf:checkbox path="potrebnoZakPom" value="${znam.potrebnoZakazati}"/><br/>  --%>
+	   		
+	   <c:if  test="${znam.potrebnoZakazati}"> 
+	  Biraj da li je potrebno zakazati  <sf:checkbox path="potrebnoZakPom" value="${znam.potrebnoZakazati} " checked="checked" /><br/>
+	 <%--  value="${znam.potrebnoZakazati} " --%>
+	 </c:if> 
+	 
+	 
+	 <c:if  test="${!znam.potrebnoZakazati}">
+	  Biraj da li je potrebno zakazati  <sf:checkbox path="potrebnoZakPom"  value="${znam.potrebnoZakazati} " /><br/>
+	  
+	 </c:if> 
+	   
+	   
+	   
+	   
+	   
+	   
+	   
   		<br/>
   	  <br/>
   	  Unesi novu sliku  <sf:input type="file" path="slika"/><br/>

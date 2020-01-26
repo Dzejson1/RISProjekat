@@ -31,23 +31,20 @@
 		<tr>
 			<th>Name</th>
 			<th>Editovanje</th>
-			<th>Brisanje</th>
 			
 		</tr>
-		<c:if test="${not empty listaEditTipZnam}">
-			<c:forEach var="i" items="${listaEditTipZnam}">
+		<c:if test="${not empty planine}">
+			<c:forEach var="i" items="${planine}">
 				<tr>
-					<td>${i.opis }</td>
+					<td>${i.naziv }</td>
 					
 					<td><a
-						href="/Planinar/tipZnamenitostiController/admin/editTipoveZnamenitosti?idTZ=${i.idTipZnamenitosti }">Edit</a></td>
-						<td><a
-						href="/Planinar/tipZnamenitostiController/admin/obrisiTipZnamenitosti?idTZ=${i.idTipZnamenitosti }">Obrisii</a></td>
+						href="/Planinar/znamenitostController/user/prikaziStaze?idP=${i.idPlanina }">Izaberi staze</a></td>
 				</tr>
 			</c:forEach>
 		</c:if>
 	</table>
-	<a class="insert" href="/Planinar/admin/dodajTipZnamenitosti.jsp">Add</a>
+	<a class="insert" href="/Planinar/admin/dodajPlaninu.jsp">Add</a>
  </div>
 		 
 		

@@ -13,7 +13,15 @@
 <%@ include file="../header.jsp"%>
 <div id="main">
     <div id="text"> 
-
+    <c:if test="${ empty listaTR }">
+    <h1>Morate uneti tip znamenitosti</h1><br/><br/><br/>
+    </c:if>
+    <c:if test="${ empty listaS } }">
+    <h1>Morate uneti stazu</h1>
+    </c:if>
+    
+ <c:if test="${! empty listaTR && ! empty listaS }">
+<%-- <c:if test="${! empty listaS } ">  --%>
 <sf:form modelAttribute="znamImg"  action="/Planinar/znamenitostController/admin/dodajZnamenitost"  method="post" enctype="multipart/form-data">
   
   
@@ -48,6 +56,8 @@
   	
   	
 </sf:form>
+ </c:if>
+<%-- </c:if>  --%>
 </div>
   </div>
   <%@ include file="../footer.jsp"%>

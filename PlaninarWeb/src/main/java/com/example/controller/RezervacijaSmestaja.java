@@ -8,6 +8,8 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
@@ -38,6 +40,48 @@ public class RezervacijaSmestaja {
 	@Autowired
 	PlaninarskiDomRepository planDom;
 	
+	@Autowired
+	PlaninaRepository planinaRep;
+	
+	@RequestMapping(value = "/user/prikaziPlanine",method = RequestMethod.GET)
+	public String prikaziPlanine(HttpServletRequest request) {
+		List<Planina56417>listaP=planinaRep.findAll();
+		request.getSession().setAttribute("listaP", listaP);
+		return "user/dom";
+	}
+	@RequestMapping(value = "/user/rezervisiSmestaj",method = RequestMethod.GET)
+	public String rezervisiSmestaj(String idD,HttpServletRequest request) {
+		Planinarskidom56417 dom=planDom.findById(Integer.parseInt(idD)).get();
+		request.getSession().setAttribute("dom", dom);
+		return "user/rezervisiSmestaj";
+	}
+	
+	@RequestMapping(value = "/user/rezervisiSSmestaj",method = RequestMethod.POST)
+	public String rezervisiSSmestaj(Date datum,HttpServletRequest request) {
+		Planinarskidom56417 dom=(Planinarskidom56417)request.getSession().getAttribute("dom");
+		UserDetails currentUser = (UserDetails) (SecurityContextHolder.getContext().getAuthentication().getPrincipal());
+		String username = currentUser.getUsername();
+		Korisnik56417 user = korRep.findByUsername(username);
+		Rezervacijasmestaja56417 rez=new Rezervacijasmestaja56417();
+		rez.setDatum(datum);
+		rez.setKorisnik56417(user);
+		rez.setPlaninarskidom56417(dom);
+		rezSmeRep.save(rez);
+		return "redirect:/rezervacijaSmestajaController/user/prikaziPlanine";
+		
+	}
+	
+	
+	@RequestMapping(value = "/user/prikaziDomove",method = RequestMethod.GET)
+	public String prikaziDomove(String idP,HttpServletRequest request) {
+		Planina56417 plan=planinaRep.findById(Integer.parseInt(idP)).get();
+		List<Planinarskidom56417>listaD=planDom.findByPlanina56417(plan);
+		request.getSession().setAttribute("listaD", listaD);
+		return "user/prikazDomova";
+	}
+	
+	
+	
 	@RequestMapping(value = "/user/getDodajRezervacijuSmestaja",method = RequestMethod.GET)
 	public String getDodajRezervacijuSmestaja(HttpServletRequest request) {
 		List<Korisnik56417>listaK=korRep.findAll();
@@ -46,6 +90,7 @@ public class RezervacijaSmestaja {
 		request.getSession().setAttribute("listaD", listaD);
 		return "user/dodajRezervacijuSmestaja";
 	}
+	
 	@RequestMapping(value = "/user/getIzmeniRezervacijuSmestaja",method = RequestMethod.GET)
 	public String getIzmeniRezervacijuSmestaja(HttpServletRequest request) {
 		List<Rezervacijasmestaja56417>listaR=rezSmeRep.findAll();

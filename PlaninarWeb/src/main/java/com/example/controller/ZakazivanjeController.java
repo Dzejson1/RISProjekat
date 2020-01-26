@@ -8,6 +8,8 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
@@ -34,6 +36,16 @@ public class ZakazivanjeController {
 	
 	@Autowired
 	KorisnikRepository korisRep;
+	
+	
+	@RequestMapping(value = "/user/unesiDatumZakaz",method = RequestMethod.GET)
+	public String unesiDatumZakaz(String idZ,HttpServletRequest request) {
+	
+		Znamenitost56417 zname=znamRep.findById(Integer.parseInt(idZ)).get();
+		
+		request.getSession().setAttribute("zname", zname);
+		return "user/dodajZakazivanje";
+	}
 	
 	@RequestMapping(value = "/user/getDodajZakazivanje",method = RequestMethod.GET)
 	public String dodajKorisnika(HttpServletRequest request) {
@@ -72,13 +84,18 @@ public class ZakazivanjeController {
 	}
 	
 	@RequestMapping(value = "/user/zakazi",method = RequestMethod.POST)
-	public String zakazi(String idZ,String idK,Date datum,HttpServletRequest request) {
+	public String zakazi(Date datum,HttpServletRequest request) {
+		UserDetails currentUser = (UserDetails) (SecurityContextHolder.getContext().getAuthentication().getPrincipal());
+		String username = currentUser.getUsername();
+		Korisnik56417 user = korisRep.findByUsername(username);
+		
+		Znamenitost56417 znam=(Znamenitost56417)request.getSession().getAttribute("zname");
 		Zakazivanjeznamenitosti56417 zak=new Zakazivanjeznamenitosti56417();
 		zak.setDatum(datum);
-		zak.setKorisnik56417(korisRep.findById(Integer.parseInt(idK)).get());
-		zak.setZnamenitost56417(znamRep.findById(Integer.parseInt(idZ)).get());
+		zak.setKorisnik56417(user);
+		zak.setZnamenitost56417(znam);
 		zakRep.save(zak);
-		return "redirect:/zakazivanjeController/user/getDodajZakazivanje";
+		return "user/prikaziZnamenitosti";
 	}
 	@RequestMapping(value = "/user/izmeniZakazivanje",method = RequestMethod.POST)
 	public String izmeniZakazivanje(String idZak,String idZ,String idK,Date datum,HttpServletRequest request) {

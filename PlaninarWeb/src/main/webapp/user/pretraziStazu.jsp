@@ -24,11 +24,11 @@ Unesi naziv <input type="text" name="idStaza">
 
 <div >
  <img height="100" width="100" src="/Planinar/stazaController/user/get-image/${slika.idStaza}"/><br/><br/>
-
+</div>
  <%-- <img src="${pageContext.request.contextPath}/img/JSA-ABOUT-IMAGE-BLACK-BACKGROUND.png" height="42" width="42"/> --%>
  
 <%-- <img src="<c:url value="JSA-ABOUT-IMAGE-BLACK-BACKGROUND.png"/>"/> --%>
-</div>
+
 </c:if><br/>
 <form action="/Planinar/index.jsp">
 <input type="submit" value="Back home">

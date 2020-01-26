@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.example.repository.TipZnamenitostiRepository;
+import com.example.repository.ZnamenitostRepository;
 
 import model.Korisnik56417;
 import model.Planina56417;
@@ -17,6 +18,7 @@ import model.Planinarskidom56417;
 import model.Rezervacijasmestaja56417;
 import model.Staza56417;
 import model.Tipznamenitosti56417;
+import model.Znamenitost56417;
 
 @org.springframework.stereotype.Controller
 @RequestMapping(value = "/tipZnamenitostiController")
@@ -24,6 +26,9 @@ public class TipZnamenitostiController {
 
 	@Autowired
 	TipZnamenitostiRepository tipZnamRep;
+	
+	@Autowired
+	ZnamenitostRepository znamRep;
 	
 	@RequestMapping(value = "/admin/UnesiTipZnamenitosti",method = RequestMethod.POST)
 	public String UnesiTipZnamenitosti(String opis,HttpServletRequest request) {
@@ -48,7 +53,9 @@ public class TipZnamenitostiController {
 	@RequestMapping(value = "/admin/obrisiTipZnamenitosti",method = RequestMethod.GET)
 	public String obrisiTipZnamenitosti(String idTZ,HttpServletRequest request) {
 		Tipznamenitosti56417 tipZ=tipZnamRep.findById(Integer.parseInt(idTZ)).get();
-		
+		List<Znamenitost56417>listaZ=znamRep.findByTipznamenitosti56417(tipZ);
+		for(Znamenitost56417 z:listaZ)
+			znamRep.delete(z);
 		//System.out.println("--------------------------------------------------------------------------------------------"+tipZ.getIdTipZnamenitosti());
 		tipZnamRep.delete(tipZ);
 		//System.out.println("-----------------------------------------------------------------------------------------------------------------------");

@@ -10,4 +10,6 @@ public interface KorisnikRepository extends JpaRepository<Korisnik56417, Integer
 
 	Korisnik56417 findByUsername(String username);
 
+	
+
 }

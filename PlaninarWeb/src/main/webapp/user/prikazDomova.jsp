@@ -26,28 +26,31 @@
     <div id="text"> 
 		
 		<!-- <div class="content"> -->
-	<h2>Planina</h2>
+	<h2>Dom</h2>
+
 	<table border="1">
 		<tr>
-			<th>Name</th>
-			<th>Editovanje</th>
-			<th>Brisanje</th>
+			<th>Naziv doma</th>
+			<th>Odaberi datum</th>
+			<th>Rezervisi</th>
 			
 		</tr>
-		<c:if test="${not empty listaEditTipZnam}">
-			<c:forEach var="i" items="${listaEditTipZnam}">
+		<c:if test="${not empty listaD}">
+			<c:forEach var="i" items="${listaD}">
 				<tr>
-					<td>${i.opis }</td>
+					<td>${i.naziv }</td>
 					
-					<td><a
-						href="/Planinar/tipZnamenitostiController/admin/editTipoveZnamenitosti?idTZ=${i.idTipZnamenitosti }">Edit</a></td>
-						<td><a
-						href="/Planinar/tipZnamenitostiController/admin/obrisiTipZnamenitosti?idTZ=${i.idTipZnamenitosti }">Obrisii</a></td>
+					
+					<td>
+					<a href="/Planinar/rezervacijaSmestajaController/user/rezervisiSmestaj?idD=${i.idPlaninarskiDom }">Rezervisi</a>
+					</td>
+					
 				</tr>
 			</c:forEach>
 		</c:if>
 	</table>
-	<a class="insert" href="/Planinar/admin/dodajTipZnamenitosti.jsp">Add</a>
+	
+	<a class="insert" href="/Planinar/admin/dodajPlaninu.jsp">Add</a>
  </div>
 		 
 		

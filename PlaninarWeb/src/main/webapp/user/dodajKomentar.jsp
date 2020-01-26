@@ -6,24 +6,24 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
+<link rel="stylesheet" href="${pageContext.request.contextPath }/css/style.css"> 
 </head>
 <body>
+<div id="container"> 
+<%@ include file="../header.jsp"%>
+<div id="main">
+    <div id="text"> 
 <form action="/Planinar/komentarController/user/DodajKomentar" method="post">
-<select name="idZ">
-  <c:forEach items="${listaZ}" var="l">
- 	 <option value="${l.idZnamenitost }">${l.opis }</option>
-  </c:forEach>
-</select><br/>
-<select name="idK">
-  <c:forEach items="${listaK}" var="l">
- 	 <option value="${l.idKorisnik }">${l.ime }</option>
-  </c:forEach>
-</select>
-Unesi opis komentara<input type="text" name="opisK">
+
+Unesi opis komentara <textarea name="opisK"></textarea>
 <input type="submit" value="Dodaj">
 </form><br/>
 <form action="/Planinar/index.jsp">
 <input type="submit" value="Back home">
 </form>
+ </div>
+  </div>
+  <%@ include file="../footer.jsp"%>
+  </div>
 </body>
 </html>

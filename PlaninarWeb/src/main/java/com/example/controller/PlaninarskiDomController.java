@@ -42,6 +42,9 @@ public class PlaninarskiDomController {
 		return "admin/domovi";
 	}
 	
+	
+	
+	
 	@RequestMapping(value = "/admin/editujDom",method = RequestMethod.GET)
 	public String editujDom(String idD,HttpServletRequest request) {
 		Planinarskidom56417 dom=planDomRep.findById(Integer.parseInt(idD)).get();
@@ -80,5 +83,7 @@ public class PlaninarskiDomController {
 		planDomRep.save(dom);
 		return "redirect:/planinarskiDomController/admin/prikaziDomove";
 	}
+	
+	
 	
 }
