@@ -38,7 +38,7 @@
 		<c:if test="${not empty listaZ}">
 			<c:forEach var="i" items="${listaZ}">
 				<tr>
-					<td>${i.opis }</td>
+					<td>${i.opis }</td>           
 					<td>
 					<div >  
  						<img height="100" width="100" src="/Planinar/znamenitostController/user/get-image/${i.idZnamenitost}"/><br/><br/>
