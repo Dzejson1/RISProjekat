@@ -72,8 +72,8 @@ public class ZakazivanjeController {
 		List<Zakazivanjeznamenitosti56417>listaZ=zakRep.findAll();
 		
 		request.getSession().setAttribute("listaZ", listaZ);
-		
-		return "user/obrisiZakazivanje";
+		  
+		return "user/obrisiZakazivanje"; 
 	}
 	@RequestMapping(value = "/user/obrisiZakazivanje",method = RequestMethod.POST)
 	public String obrisiZakazivanje(String idZ,HttpServletRequest request) {
