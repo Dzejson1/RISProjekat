@@ -7,31 +7,28 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
+<link rel="stylesheet" href="${pageContext.request.contextPath }/css/style.css"> 
 </head>
 <body>
+<div id="container"> 
+<%@ include file="../header.jsp"%>
+<div id="main">
+    <div id="text">  
 <sf:form modelAttribute="slikaImg" action="/Planinar/slikeController/user/DodajSlike"  method="post" enctype="multipart/form-data">
   
-   <sf:select path="planina56417">
-      <c:forEach items="${listaP}" var="l">
- 	      <option value="${l.idPlanina }">${l.naziv}</option>
-      </c:forEach>
-   </sf:select>
-   	
-	<sf:select path="korisnik56417">
-      <c:forEach items="${listaK}" var="l">
- 	      <option value="${l.idKorisnik }">${l.ime}</option>
-      </c:forEach>
-   </sf:select>
+
     
-   
-  	  <sf:input type="file" path="pic"/>
+  	 Odaberi sliku <sf:input type="file" path="pic"/>
   
   	<td><input type="submit" value="saveButton"></td>
   	
   	
   	
 </sf:form>
-
+</div>
+  </div>
+  <%@ include file="../footer.jsp"%>
+  </div>
 
 
 

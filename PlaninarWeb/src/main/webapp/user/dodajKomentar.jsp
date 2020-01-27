@@ -15,7 +15,15 @@
     <div id="text"> 
 <form action="/Planinar/komentarController/user/DodajKomentar" method="post">
 
+
+
+<div class="paper">
+    <div class="paper-content">
+
 Unesi opis komentara <textarea name="opisK"></textarea>
+</div>
+</div>
+
 <input type="submit" value="Dodaj">
 </form><br/>
 <form action="/Planinar/index.jsp">

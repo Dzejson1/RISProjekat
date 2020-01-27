@@ -28,7 +28,7 @@
   <a href="/Planinar/stazaController/admin/prikaziCStaze">Staza</a> &nbsp;
   <a href="/Planinar/znamenitostController/admin/prikaziCZnamenitosti">Znamenitosti</a> &nbsp;
   <a href="/Planinar/tipZnamenitostiController/admin/getEditTipoveZnamenitosti">Tip znamenitosti</a> &nbsp; 
-
+  <a href="/Planinar/znamenitostController/admin/prikaziZnamenitosti">Spisak termina</a> &nbsp;
   <a href="/Planinar/planinarskiDomController/admin/prikaziDomove">Planinarski dom</a> &nbsp;  
   <a href="/Planinar/korisnikController/admin/UnesiKorisnika">Korisnik</a> &nbsp; 
   <a href="/Planinar/auth/logout">Logout</a>
@@ -44,6 +44,8 @@
    <a href="/Planinar/index.jsp">Home</a> &nbsp;
    <a href="/Planinar/rezervacijaSmestajaController/user/prikaziPlanine">Rezervacija smestaja</a> &nbsp;  
    <a href="/Planinar/znamenitostController/user/prikaziPlanine">Prikazi znamenitosti</a> &nbsp;  
+   <a href="/Planinar/slikeController/user/prikaziPlanineZaSLike">Slike</a> &nbsp; 
+   <a href="/Planinar/izvestajController/user/prikaziPlanineZaIzvestaj">Izvestaj</a> &nbsp; 
    <a href="/Planinar/auth/logout">Logout</a>
 </div>
 

@@ -54,8 +54,22 @@ public class ZnamenitostController {
 	
 	@Autowired
 	PlaninaRepository planRep;
+
+	@RequestMapping(value = "/admin/prikaziSpisakTerminaPosebeZnamenitosti",method = RequestMethod.GET)
+	public String prikaziSpisakTerminaPosebeZnamenitosti(String idZ,HttpServletRequest request) {
+		Znamenitost56417 znam=znamRep.findById(Integer.parseInt(idZ)).get();
+		List<Zakazivanjeznamenitosti56417>listaZZ=zakazivanjeRep.findByZnamenitost56417(znam);
+		request.getSession().setAttribute("listaZZ", listaZZ);
+		return "admin/prikaziTerminePosete";
+	}
 	
-	
+	@RequestMapping(value = "/admin/prikaziZnamenitosti",method = RequestMethod.GET)
+	public String prikaziZnamenitosti(HttpServletRequest request) {
+		
+		List<Znamenitost56417>listaZ=znamRep.findAll();
+		request.getSession().setAttribute("listaZ", listaZ);
+		return "admin/znamenitostiTermini";
+	}
 	
 	
 	@RequestMapping(value = "/user/prikaziSveZnamenitosti",method = RequestMethod.GET)

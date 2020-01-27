@@ -15,34 +15,29 @@
 <div id="main">
     <div id="text">  
 <sf:form modelAttribute="znamImg"  action="/Planinar/znamenitostController/admin/izmeniZnamenitost"  method="post" enctype="multipart/form-data">
-   <%-- <sf:select path="planina56417">
-      <c:forEach items="${staze }" var="s">
-  		<option value="${s.idStaza }">${s.opis }</option>
-  	  </c:forEach>
-   </sf:select> --%>
    
-   <%--  <select name="idZ">
-  		<c:forEach items="${listaZ }" var="s">
-  			<option value="${s.idZnamenitost }">${s.opis }</option>
-  		</c:forEach>
-	</select> <br/> --%>
-   <br/>
-  	  <br/>
   	  Unesi novi opis  <sf:input path="opis" value="${znam.opis}"/> <br/>
 <br/>
 
   	  <br/>
-  	  ///////////////////////////////////////////////////////////////////////////////////////////////////
-  	  <%-- <c:if test="${znam.potrebnoZakazati==1}">
-  	  
-  	  Biraj da li je potrebno zakazati  <sf:checkbox path="potrebnoZakPom" checked/><br/>
-  	  </c:if>
-  	  <c:if test="${znam.potrebnoZakazati==0}">
-  	  Biraj da li je potrebno zakazati  <sf:checkbox path="potrebnoZakPom"/><br/>
-  	  </c:if> --%>
-  	  ////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	 <%--   Biraj da li je potrebno zakazati  <sf:checkbox path=potrebnoZakPom" value=<%=${znam.potrebnoZakazati}==1?"True":"False" %>/><br/> --%> 
-	   <%-- Biraj da li je potrebno zakazati  <sf:checkbox path="potrebnoZakPom" value="${znam.potrebnoZakazati}"/><br/>  --%>
+  	
+	   		
+	   		Unesi novu sliku  <sf:input type="file" path="slika"/><br/>
+  	  <br/>
+  	  <br/>
+  	 <sf:select path="tipznamenitosti56417">
+      <c:forEach items="${listaTR}" var="s">
+  		<option value="${s.idTipZnamenitosti }">${s.opis }</option>
+  	  </c:forEach>
+    </sf:select> <br/>
+    <br/>
+  	  <br/>
+    <sf:select path="staza56417">
+      <c:forEach items="${listaS }" var="s">
+  		<option value="${s.idStaza }">${s.opis }</option>
+  	  </c:forEach>
+    </sf:select> 
+  
 	   		
 	   <c:if  test="${znam.potrebnoZakazati}"> 
 	  Biraj da li je potrebno zakazati  <sf:checkbox path="potrebnoZakPom" value="${znam.potrebnoZakazati} " checked="checked" /><br/>
@@ -63,22 +58,7 @@
 	   
   		<br/>
   	  <br/>
-  	  Unesi novu sliku  <sf:input type="file" path="slika"/><br/>
-  	  <br/>
-  	  <br/>
-  	 <sf:select path="tipznamenitosti56417">
-      <c:forEach items="${listaTR}" var="s">
-  		<option value="${s.idTipZnamenitosti }">${s.opis }</option>
-  	  </c:forEach>
-    </sf:select> <br/>
-    <br/>
-  	  <br/>
-    <sf:select path="staza56417">
-      <c:forEach items="${listaS }" var="s">
-  		<option value="${s.idStaza }">${s.opis }</option>
-  	  </c:forEach>
-    </sf:select> 
-  
+  	  
   	<td><input type="submit" value="saveButton"></td>
   	
 </sf:form><br/>
