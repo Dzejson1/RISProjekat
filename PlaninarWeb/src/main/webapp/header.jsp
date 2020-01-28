@@ -29,6 +29,7 @@
   <a href="/Planinar/znamenitostController/admin/prikaziCZnamenitosti">Znamenitosti</a> &nbsp;
   <a href="/Planinar/tipZnamenitostiController/admin/getEditTipoveZnamenitosti">Tip znamenitosti</a> &nbsp; 
   <a href="/Planinar/znamenitostController/admin/prikaziZnamenitosti">Spisak termina</a> &nbsp;
+  <a href="/Planinar/planinaController/admin/prikaziSvePlanine">Statistika nocenja</a> &nbsp;
   <a href="/Planinar/planinarskiDomController/admin/prikaziDomove">Planinarski dom</a> &nbsp;  
   <a href="/Planinar/korisnikController/admin/UnesiKorisnika">Korisnik</a> &nbsp; 
   <a href="/Planinar/auth/logout">Logout</a>

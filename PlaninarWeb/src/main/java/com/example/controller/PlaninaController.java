@@ -10,8 +10,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.example.repository.PlaninaRepository;
+import com.example.repository.RezervacijaSmestajaRepository;
 
 import model.Planina56417;
+import model.Rezervacijasmestaja56417;
 import model.Tipznamenitosti56417;
 
 @Controller
@@ -21,6 +23,23 @@ public class PlaninaController {
 	@Autowired
 	PlaninaRepository planRep;
 	
+	@Autowired
+	RezervacijaSmestajaRepository rezRep;
+	
+	@RequestMapping(value = "/admin/pronadjStatistikuNocenja",method = RequestMethod.GET)
+	public String pronadjStatistikuNocenj(String idP,HttpServletRequest request) {
+		Planina56417 plan=planRep.findById(Integer.parseInt(idP)).get();
+		List<Rezervacijasmestaja56417>rezervacije=rezRep.nadjiPlanine(plan.getIdPlanina());
+		request.getSession().setAttribute("rezervacije", rezervacije);
+		return "admin/prikaziStatistikuNocenja";
+	}
+	
+	@RequestMapping(value = "/admin/prikaziSvePlanine",method = RequestMethod.GET)
+	public String prikaziSvePlanine(HttpServletRequest request) {
+		List<Planina56417>planina=planRep.findAll();
+		request.getSession().setAttribute("planine", planina);
+		return "admin/planineStat";
+	}
 	//obrisi
 	@RequestMapping(value = "/admin/prikaziPlanine",method = RequestMethod.GET)
 	public String prikaziPlanine(HttpServletRequest request) {

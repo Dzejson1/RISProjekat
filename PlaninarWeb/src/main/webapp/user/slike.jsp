@@ -31,7 +31,7 @@
 		<tr>
 			<th>Name</th>
 			<th>Dodavanje slika</th>
-			
+			<th>Prikaz slika</th>
 		</tr>
 		<c:if test="${not empty listaP}">
 			<c:forEach var="i" items="${listaP}">
@@ -39,7 +39,11 @@
 					<td>${i.naziv }</td>
 					
 					<td><a
-						href="/Planinar/slikeController/user/getDodajSlike?idP=${i.idPlanina }">Dodaj</a></td>
+						href="/Planinar/slikeController/user/getDodajSlike?idP=${i.idPlanina }">Dodaj</a>
+						</td>
+						<td><a
+						href="/Planinar/slikeController/user/prikaziSlikeZaPlaninu?idP=${i.idPlanina }">Prikazi</a>
+						</td>
 				</tr>
 			</c:forEach>
 		</c:if>

@@ -33,6 +33,15 @@ public class IzvestajController {
 	@Autowired
 	IzvestajRepository izvRep;
 	
+	
+	@RequestMapping(value = "/user/prikaziIzvestajeZaPlaninu",method = RequestMethod.GET)
+	public String prikaziIzvestajeZaPlaninu(String idP,HttpServletRequest request) {
+		Planina56417 planina=planRep.findById(Integer.parseInt(idP)).get();
+		List<Izvestaj56417>izvestaji=izvRep.findByPlanina56417(planina);
+		request.getSession().setAttribute("izvestaji", izvestaji);
+		return "user/prikaziSveIzvestajeZaPlaninu";
+	}
+	
 	@RequestMapping(value = "/user/prikaziPlanineZaIzvestaj",method = RequestMethod.GET)
 	public String prikaziPlanineZaIzvestaj(HttpServletRequest request) {
 		List<Planina56417>listaP=planRep.findAll();

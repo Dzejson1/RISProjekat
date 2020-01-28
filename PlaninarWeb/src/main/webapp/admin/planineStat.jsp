@@ -30,25 +30,21 @@
 	<table border="1">
 		<tr>
 			<th>Name</th>
-			<th>Dodavanje izvestaj</th>
-			<th>Prikazi izvestaje</th>
+			<th>Prikazi rezervisana nocenja</th>
+			
 		</tr>
-		<c:if test="${not empty listaP}">
-			<c:forEach var="i" items="${listaP}">
+		<c:if test="${not empty planine}">
+			<c:forEach var="i" items="${planine}">
 				<tr>
 					<td>${i.naziv }</td>
 					
 					<td><a
-						href="/Planinar/izvestajController/user/getDodajIzvestaj?idP=${i.idPlanina }">Dodaj</a>
-						</td>
-						<td><a
-						href="/Planinar/izvestajController/user/prikaziIzvestajeZaPlaninu?idP=${i.idPlanina }">Prikazi</a>
-						</td>
+						href="/Planinar/planinaController/admin/pronadjStatistikuNocenja?idP=${i.idPlanina }">Prikazi</a></td>
 				</tr>
 			</c:forEach>
 		</c:if>
 	</table>
-
+	<a class="insert" href="/Planinar/admin/dodajPlaninu.jsp">Add</a>
  </div>
 		 
 		

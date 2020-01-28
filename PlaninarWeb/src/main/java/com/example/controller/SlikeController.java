@@ -44,6 +44,16 @@ public class SlikeController {
 	@Autowired
 	SlikaRepository slikaRep;
 	
+	
+	
+	@RequestMapping(value = "/user/prikaziSlikeZaPlaninu",method = RequestMethod.GET)
+	public String prikaziSlikeZaPlaninu(String idP,HttpServletRequest request,Model model) {
+		Planina56417 planina=planRep.findById(Integer.parseInt(idP)).get();
+		List<Slika56417>slike=slikaRep.findByPlanina56417(planina);
+		request.getSession().setAttribute("slike", slike);
+		return "user/prikaziSlikeZaPlaninu";
+	}
+	
 	@RequestMapping(value = "/user/prikaziPlanineZaSLike",method = RequestMethod.GET)
 	public String prikaziPlanineZaSLike(HttpServletRequest request,Model model) {
 		List<Planina56417>listaP=planRep.findAll();
