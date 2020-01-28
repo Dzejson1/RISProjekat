@@ -1,7 +1,11 @@
 package com.example.controller;
 
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -28,10 +32,17 @@ import com.example.repository.ZnamenitostRepository;
 
 import model.Komentar56417;
 import model.Planina56417;
+import model.Rezervacijasmestaja56417;
 import model.Staza56417;
 import model.Tipznamenitosti56417;
 import model.Zakazivanjeznamenitosti56417;
 import model.Znamenitost56417;
+import net.sf.jasperreports.engine.JasperCompileManager;
+import net.sf.jasperreports.engine.JasperExportManager;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 
 @Controller
 @RequestMapping(value = "/znamenitostController")
@@ -54,7 +65,40 @@ public class ZnamenitostController {
 	
 	@Autowired
 	PlaninaRepository planRep;
-
+	
+	
+	@RequestMapping(value="/admin/generisiPdfIzvestaj", method=RequestMethod.GET) 
+	public void generisiIzvestaj(String idZ,HttpServletRequest request, HttpServletResponse response) throws Exception { 
+		Znamenitost56417 znam=znamRep.findById(Integer.parseInt(idZ)).get();
+		List<Zakazivanjeznamenitosti56417>listaZZ=zakazivanjeRep.findByZnamenitost56417(znam);
+	
+		response.setContentType("text/html"); 
+		JRBeanCollectionDataSource dataSource =  new JRBeanCollectionDataSource(listaZZ);
+		
+		InputStream inputStream = this.getClass().getResourceAsStream("/reports/DatumiZakazivanjaZnam.jrxml");
+		JasperReport jasperReport = JasperCompileManager.compileReport(inputStream);
+		Map<String, Object> params = new HashMap<String, Object>();
+		
+		JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, params, dataSource);
+		inputStream.close();
+		
+		response.setContentType("application/x-download");
+		response.addHeader("Content-disposition", "attachment; filename=PredstaveRezisera.pdf");
+		OutputStream out = response.getOutputStream();
+		JasperExportManager.exportReportToPdfStream(jasperPrint,out);
+	}
+	
+	
+	/*
+	 * @RequestMapping(value = "/admin/generisiPdfIzvestaj",method =
+	 * RequestMethod.GET) public String generisiPdfIzvestaj(String
+	 * idZ,HttpServletRequest request) { Znamenitost56417
+	 * znam=znamRep.findById(Integer.parseInt(idZ)).get();
+	 * List<Zakazivanjeznamenitosti56417>listaZZ=zakazivanjeRep.
+	 * findByZnamenitost56417(znam); request.getSession().setAttribute("listaZZ",
+	 * listaZZ); return "admin/prikaziTerminePosete"; }
+	 */
+	
 	@RequestMapping(value = "/admin/prikaziSpisakTerminaPosebeZnamenitosti",method = RequestMethod.GET)
 	public String prikaziSpisakTerminaPosebeZnamenitosti(String idZ,HttpServletRequest request) {
 		Znamenitost56417 znam=znamRep.findById(Integer.parseInt(idZ)).get();
@@ -80,6 +124,7 @@ public class ZnamenitostController {
 		request.getSession().setAttribute("listaZ", listaZ);
 		return "user/prikaziZnamenitosti";
 	}
+	
 	@RequestMapping(value = "/user/prikaziStaze",method = RequestMethod.GET)
 	public String prikaziStaze(String idP,HttpServletRequest request,Model model) {
 		Planina56417 plan=planRep.findById(Integer.parseInt(idP)).get();

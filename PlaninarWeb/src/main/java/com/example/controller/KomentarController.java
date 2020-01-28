@@ -36,6 +36,14 @@ public class KomentarController {
 	
 	
 	
+	@RequestMapping(value = "/user/prikaziSveKomentareZaZnamenitost",method = RequestMethod.GET)
+	public String prikaziSveKomentareZaZnamenitost(String idZ,HttpServletRequest request) {
+		Znamenitost56417 znam=znamRep.findById(Integer.parseInt(idZ)).get();
+		List<Komentar56417>komentari=komRep.findByZnamenitost56417(znam);
+		request.getSession().setAttribute("komentari", komentari);
+		return "user/prikaziSveKomentareZaZ";
+	}
+	
 	@RequestMapping(value = "/user/unesiKomentarZ",method = RequestMethod.GET)
 	public String unesiKomentarZ(String idZ,HttpServletRequest request) {
 		Znamenitost56417 znam=znamRep.findById(Integer.parseInt(idZ)).get();

@@ -31,7 +31,7 @@
 		<tr>
 			<th>Name</th>
 			<th>Spisak</th>
-			
+			<th>Generisi pdf izvestaj</th>
 			
 		</tr>
 		<c:if test="${not empty listaZ}">
@@ -41,6 +41,9 @@
 					
 					<td><a
 						href="/Planinar/znamenitostController/admin/prikaziSpisakTerminaPosebeZnamenitosti?idZ=${i.idZnamenitost }">Prikazi spisak</a>
+					</td>
+					<td><a
+						href="/Planinar/znamenitostController/admin/generisiPdfIzvestaj?idZ=${i.idZnamenitost }">Generisi</a>
 					</td>
 						
 				</tr>

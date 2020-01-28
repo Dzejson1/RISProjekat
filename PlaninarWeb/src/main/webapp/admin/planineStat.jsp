@@ -31,6 +31,7 @@
 		<tr>
 			<th>Name</th>
 			<th>Prikazi rezervisana nocenja</th>
+			<th>Generisi pdf izvestaj</th>
 			
 		</tr>
 		<c:if test="${not empty planine}">
@@ -39,7 +40,11 @@
 					<td>${i.naziv }</td>
 					
 					<td><a
-						href="/Planinar/planinaController/admin/pronadjStatistikuNocenja?idP=${i.idPlanina }">Prikazi</a></td>
+						href="/Planinar/planinaController/admin/pronadjStatistikuNocenja?idP=${i.idPlanina }">Prikazi</a>
+						</td>
+						<td><a
+						href="/Planinar/planinaController/admin/generisiPdfIzvestaj?idP=${i.idPlanina }">Generisi</a>
+						</td>
 				</tr>
 			</c:forEach>
 		</c:if>

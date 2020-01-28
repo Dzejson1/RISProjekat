@@ -32,6 +32,7 @@
 			<th>Name</th>
 			<th>Slika</th>
 			<th>Unesi komentar</th>
+			<th>Prikazi komentare</th>
 			<th>Zakazi</th>
 			
 		</tr>
@@ -45,7 +46,12 @@
 					</div> 
 					</td>
 					<td><a
-						href="/Planinar/komentarController/user/unesiKomentarZ?idZ=${i.idZnamenitost }">Unesi komentar</a></td>
+						href="/Planinar/komentarController/user/unesiKomentarZ?idZ=${i.idZnamenitost }">Unesi komentar</a>
+					</td>
+					
+					<td><a
+						href="/Planinar/komentarController/user/prikaziSveKomentareZaZnamenitost?idZ=${i.idZnamenitost }">Prikazi komentare</a>
+					</td>
 					<td>
 					<c:if test="${i.potrebnoZakazati }">
 					
@@ -53,6 +59,7 @@
 						href="/Planinar/zakazivanjeController/user/unesiDatumZakaz?idZ=${i.idZnamenitost }">Zakazi
 						
 					</a>
+					
 					</c:if>
 					<c:if test="${!i.potrebnoZakazati }">
 						<h1>Ne treba zakazivanje!</h1>
