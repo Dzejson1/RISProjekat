@@ -145,6 +145,7 @@ public class StazaController {
 				im.setOpis(ss.getOpis());
 				im.setPlanina56417(ss.getPlanina56417());
 				im.setMapa(file.getBytes());
+				im.setTezina(ss.getTezina());
 				stazaRep.save(im);
 			
 			}

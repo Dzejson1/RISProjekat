@@ -32,7 +32,7 @@
 		<tr>
 			<th>Naziv doma</th>
 			<th>Odaberi datum</th>
-			<th>Rezervisi</th>
+			
 			
 		</tr>
 		<c:if test="${not empty listaD}">
@@ -50,7 +50,7 @@
 		</c:if>
 	</table>
 	
-	<a class="insert" href="/Planinar/admin/dodajPlaninu.jsp">Add</a>
+	
  </div>
 		 
 		

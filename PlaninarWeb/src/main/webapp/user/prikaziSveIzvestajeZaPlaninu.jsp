@@ -15,7 +15,8 @@
 <c:if test="${! empty izvestaji}">
 
 <c:forEach items="${izvestaji }" var="izvestaj">
-<h1>Napiso je:${izvestaj.korisnik56417.ime} Izvestaj:</h1> <br/>
+<br/>
+<h1>Napisao je:${izvestaj.korisnik56417.ime}<br/><br/> Izvestaj:</h1> <br/>
 <div class="paper">
     <div class="paper-content">
 <textarea readonly><c:out value="${izvestaj.opis }" /> </textarea>

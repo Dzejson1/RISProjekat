@@ -7,9 +7,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>WebStore</title>
-<%-- <link rel="stylesheet" type="text/css"
-	href="${pageContext.request.contextPath }/css/styles.css"> --%>
+<title>Planinarsko_drustvo</title>
+
 	
 	<link rel="stylesheet" type="text/css"
 	href="${pageContext.request.contextPath }/css/style.css">
@@ -18,13 +17,8 @@
  <div class="clear"></div>
   
   <div id="footer">
-    <div id="footer_left"> Copyright 2008 Natural blues </div>
-    <div id="footer_right"> Design by <a href="http://www.realitysoftware.ca">Reality Software</a> </div>
+    <div id="footer_left"> Copyright 2020 planinarsko drustvo Srbija </div>
+    <div id="footer_right"> Design by <a href="#">Marko Popovic</a> </div>
     <div class="clear"></div>
   </div>
   <div class="clear"></div>
-
-<div align=center>This template  downloaded form <a href='http://all-free-download.com/free-website-templates/'>free website templates</a></div></body>
-
-
-

@@ -37,7 +37,7 @@
 			</c:forEach>
 		</c:if>
 	</table>
-	<a class="insert" href="/Planinar/stazaController/admin/getDodajPlanine">Add</a>
+
  </div>
   </div>
   <%@ include file="../footer.jsp"%>

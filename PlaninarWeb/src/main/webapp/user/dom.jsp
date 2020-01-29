@@ -44,7 +44,7 @@
 			</c:forEach>
 		</c:if>
 	</table>
-	<a class="insert" href="/Planinar/admin/dodajPlaninu.jsp">Add</a>
+
  </div>
 		 
 		

@@ -26,7 +26,7 @@
     <div id="text"> 
 		
 		<!-- <div class="content"> -->
-	<h2>Planina</h2>
+	<h2></h2>
 	<table border="1">
 		<tr>
 			<th>Name</th>
@@ -44,7 +44,7 @@
 			</c:forEach>
 		</c:if>
 	</table>
-	<a class="insert" href="/Planinar/admin/dodajPlaninu.jsp">Add</a>
+	
  </div>
 		 
 		

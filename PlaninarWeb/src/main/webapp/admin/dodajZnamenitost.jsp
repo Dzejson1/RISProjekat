@@ -57,14 +57,12 @@
   	
 </sf:form>
  </c:if>
-<%-- </c:if>  --%>
+
 </div>
   </div>
   <%@ include file="../footer.jsp"%>
   </div>
 <br/>
-<form action="/Planinar/index.jsp">
-<input type="submit" value="Back home">
-</form>
+
 </body>
 </html>

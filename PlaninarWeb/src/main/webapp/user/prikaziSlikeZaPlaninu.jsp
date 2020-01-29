@@ -22,7 +22,7 @@
 
  
  </c:forEach>
-   </section> -->
+   </section> 
  </c:if>
  </div>
   </div>

@@ -17,12 +17,21 @@
 <sf:form modelAttribute="znamImg"  action="/Planinar/znamenitostController/admin/izmeniZnamenitost"  method="post" enctype="multipart/form-data">
    
   	  Unesi novi opis  <sf:input path="opis" value="${znam.opis}"/> <br/>
-<br/>
+      <br/>
 
   	  <br/>
   	
 	   		
 	   		Unesi novu sliku  <sf:input type="file" path="slika"/><br/>
+	   		 <div >
+ 			<img height="100" width="100" src="/Planinar/znamenitostController/user/get-image/${znam.idZnamenitost}"/><br/><br/>
+
+
+		</div>
+	   		
+	   		
+	   		
+	   		
   	  <br/>
   	  <br/>
   	 <sf:select path="tipznamenitosti56417">

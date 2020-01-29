@@ -76,10 +76,8 @@
 			<div class="form">
 				
 				
-					<input type="text" name="username"
-					
-					placeholder="username" /> <input type="password" name="password"
-						placeholder="password" />
+					<input type="text" name="username" placeholder="username" /> 
+					<input type="password" name="password" placeholder="password" />
 					<button>login</button>
 					<p class="message">
 						Nemate nalog? <a href="/Planinar/auth/registerUser">Registrujte se</a>

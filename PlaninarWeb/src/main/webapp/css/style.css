@@ -6,16 +6,6 @@ font-family: "Myriad Pro";
 color:black;
 text-align: center;
 
-
-/* scrollbar-face-color:#FFFF99;
-scrollbar-highlight-color:#8693A3;
-scrollbar-3dlight-color:#8F9DAE;
-scrollbar-darkshadow-color:#0D2748;
-scrollbar-shadow-color:#8693A3;
-scrollbar-arrow-color:#0D2748;
-scrollbar-track-color:#989890; */
-
-
 }
 table {
   border-collapse: collapse;
@@ -67,7 +57,7 @@ color: #F8FCF7;
 text-decoration: none; 
 /* font-size: 16px;  */
 
-font-size: 11px; 
+font-size: 10px; 
 
 text-transform: uppercase;
 }
@@ -175,39 +165,7 @@ color:#FFFFFF;
 clear:both;
 }
 
-
-
-
-/*  input[type="text"] {
-  width: 20%;
-  border: 2px solid #aaa;
-  border-radius: 4px;
-  margin: 8px 0;
-  outline: none;
-  padding: 8px;
-  box-sizing: border-box;
-  transition: 0.3s;
-}
-
-input[type="text"]:focus {
-  border-color: dodgerBlue;
-  box-shadow: 0 0 8px 0 dodgerBlue;
-} */
-
- 
- 
- 
  @import url(https://fonts.googleapis.com/css?family=Lily+Script+One);
-
-/* body {
-	background:url(../images/bg.gif);
-	margin:0;
-	font-family:arial,tahoma,sans-serif;
-	font-size:12px;
-	font-weight:normal;
-	direction:ltr;
-  background:white;
-} */
 
 form {
 	margin:10% auto 0 auto;
@@ -258,24 +216,6 @@ form input[type="password"]:focus {
 	border-color:cornflowerblue;
 }
 
-/*  input[type=checkbox] {
- 
- width:20px;
- height:20px;
- border:1px solid #bbb;
-	border-radius:20px;
- 
- } */
- 
- 
- 
- 
- 
- 
-/*  input[type='checkbox'] {
-	 margin-top: -30px; 
-	margin-right: -30px;
-} */
 
 input[type='checkbox'] {
 	-webkit-font-smoothing: antialiased;

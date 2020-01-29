@@ -7,41 +7,34 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>WebStore</title>
-<%-- <link rel="stylesheet" type="text/css"
-	href="${pageContext.request.contextPath }/css/styles.css"> --%>
-	
+<title>Planinarsko_drustvo</title>
 	<link rel="stylesheet" type="text/css"
 	href="${pageContext.request.contextPath }/css/style.css">
 </head>
 <body>
-
-
-
 	<sec:authorize access="hasRole('admin')">
   <div id="header">
-    <div id="logo"><a href="#">Natural blues</a></div>
+    <div id="logo">Planinarsko_drustvo</div>
   </div>
   <div id="menu"> 
-  <a href="/Planinar/index.jsp">Home</a> &nbsp;
-  <a href="/Planinar/planinaController/admin/prikaziCPlanine">Planine</a> &nbsp;
-  <a href="/Planinar/stazaController/admin/prikaziCStaze">Staza</a> &nbsp;
-  <a href="/Planinar/znamenitostController/admin/prikaziCZnamenitosti">Znamenitosti</a> &nbsp;
-  <a href="/Planinar/tipZnamenitostiController/admin/getEditTipoveZnamenitosti">Tip znamenitosti</a> &nbsp; 
-  <a href="/Planinar/znamenitostController/admin/prikaziZnamenitosti">Spisak termina</a> &nbsp;
-  <a href="/Planinar/planinaController/admin/prikaziSvePlanine">Statistika nocenja</a> &nbsp;
-  <a href="/Planinar/planinarskiDomController/admin/prikaziDomove">Planinarski dom</a> &nbsp;  
-  <a href="/Planinar/korisnikController/admin/UnesiKorisnika">Korisnik</a> &nbsp; 
+  <a href="/Planinar/index.jsp">Home</a> 
+  <a href="/Planinar/planinaController/admin/prikaziCPlanine">Planine</a>
+  <a href="/Planinar/stazaController/admin/prikaziCStaze">Staza</a> 
+  <a href="/Planinar/znamenitostController/admin/prikaziCZnamenitosti">Znamenitosti</a>
+  <a href="/Planinar/tipZnamenitostiController/admin/getEditTipoveZnamenitosti">Tip_znamenitosti</a> 
+  <a href="/Planinar/znamenitostController/admin/prikaziZnamenitosti">Spisak_termina</a>
+  <a href="/Planinar/planinaController/admin/prikaziSvePlanine">Statistika_nocenja</a> 
+  <a href="/Planinar/planinarskiDomController/admin/prikaziDomove">Planinarski_dom</a>   
+  <a href="/Planinar/korisnikController/admin/UnesiKorisnika">Korisnik</a> 
   <a href="/Planinar/auth/logout">Logout</a>
   </div>
 </sec:authorize>
 
 <sec:authorize access="hasRole('user')">
 <div id="header">
-    <div id="logo"><a href="#">Natural blues</a></div>
+    <div id="logo">Planinarsko_drustvo</div>
   </div>
    <div id="menu"> 
-   
    <a href="/Planinar/index.jsp">Home</a> &nbsp;
    <a href="/Planinar/rezervacijaSmestajaController/user/prikaziPlanine">Rezervacija smestaja</a> &nbsp;  
    <a href="/Planinar/znamenitostController/user/prikaziPlanine">Prikazi znamenitosti</a> &nbsp;  
@@ -49,31 +42,4 @@
    <a href="/Planinar/izvestajController/user/prikaziPlanineZaIzvestaj">Izvestaj</a> &nbsp; 
    <a href="/Planinar/auth/logout">Logout</a>
 </div>
-
-
-
-
-
-
-
-
-
-
 </sec:authorize>
-	<%-- <div class="menu">
-		<a href="/WebStore/home" id="logo"><img src="${pageContext.request.contextPath }/images/e-commerce-icon-lg.png" width="50" height="45"></a>
-		<sec:authorize access="hasRole('admin')">
-			<a href="/Planinar/planinaController/admin/prikaziCPlanine"><button class="btn">Planina</button></a>
-			<a href="/Planinar/stazaController/admin/prikaziCStaze"><button class="btn">Staza</button></a>
-			<a href="/WebStore/discount/admin"><button class="btn">Discounts</button></a>
-		</sec:authorize>
-		<sec:authorize access="hasRole('user')">
-			<a href="/WebStore/category/user"><button class="btn">Categories</button></a>
-			<a href="/WebStore/cart/wishlist"><button class="btn">Wish list</button></a>
-			<a href="/WebStore/cart"><button class="btn">Cart</button></a>
-		</sec:authorize>
-		<a href="/WebStore/home/account"><button class="btn">Account</button></a> 
-		<a href="/Planinar/auth/logout"><button class="btn">Logout</button></a>
-			<c:url var="loginUrl" value="/perform_logout" />
-			<form action="${loginUrl }" method="post"> 
-	</div> --%>

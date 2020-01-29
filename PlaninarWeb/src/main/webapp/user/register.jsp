@@ -48,10 +48,10 @@
 <body>
 <sf:form class="form" modelAttribute="user"  action="/Planinar/auth/register"  method="post">
 			<!-- <form class="register-form"> -->
-					<sf:input  path="ime"/> 
-					<sf:input  path="username"/>
+					<sf:input  path="ime" placeholder="Unesite ime"/> 
+					<sf:input  path="username" placeholder="Unesite username"/>
 					<%-- <sf:input  path="password"/> --%>
-					<input type="password" name="password">
+					<input type="password" name="password" placeholder="Unesite password">
 					<button>create</button>
 					<!-- <input type="submit" value="Sacuvaj"> -->
 	</sf:form>				

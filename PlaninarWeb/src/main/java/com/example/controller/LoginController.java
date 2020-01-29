@@ -59,7 +59,7 @@ public class LoginController {
 	    
 	    
 	    //admin
-	    Role56417 role = roleRep.findById(1).get();
+	    Role56417 role = roleRep.findById(2).get();
 	    
 		u.addRole(role);
 		role.addUser(u);

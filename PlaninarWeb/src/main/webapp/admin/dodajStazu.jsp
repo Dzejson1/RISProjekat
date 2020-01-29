@@ -15,19 +15,7 @@ p<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 <div id="main">
     <div id="text"> 
 
-
-<%-- <form action="/Planinar/stazaController/admin/UnesiStazu" method="post">
-<select name="idDPlan">
-  <c:forEach items="${listaPlan}" var="l">
- 	 <option value="${l.idPlanina }">${l.naziv}</option>
-  </c:forEach>
-</select>
-Unesi opis staze<input type="text" name="opisS"><br/>
-<input type="submit" value="Dodaj">
-</form><br/> --%>
-
 <sf:form modelAttribute="stazaImg"  action="/Planinar/stazaController/admin/UnesiStazu"  method="post" enctype="multipart/form-data">
-  
   
   
   Izaberi planinu <sf:select path="planina56417">
@@ -45,8 +33,10 @@ Unesi opis staze<input type="text" name="opisS"><br/>
 		<br/>
 		<br/>
   
-  	
-  		
+  	  Unesi tezinu staze <sf:input path="tezina"/> <br/>
+  		 <br/>
+		<br/>
+		<br/>
   	 Unesi sliku <sf:input type="file" path="mapa"/>
   
   	<br/>
